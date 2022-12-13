@@ -11,4 +11,12 @@ public class DetailTour {
     public String detailTour(){
         return "DetailTour";
     }
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    public String form(){
+        return "user/Form";
+    }
+    @RequestMapping(value = "/payment", method = RequestMethod.GET)
+    public String payment(){
+        return "user/Payment";
+    }
 }
