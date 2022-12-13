@@ -19,8 +19,12 @@ public class DetailTour {
     public String payment(){
         return "user/Payment";
     }
-    @RequestMapping(value = "/checkpay", method = RequestMethod.GET)
-    public String checkpay(){
-        return "admin/checkpay";
+    @RequestMapping(value = "/notPass", method = RequestMethod.GET)
+    public String notPass(){
+        return "admin/notPass";
+    }
+    @RequestMapping(value = "/userdetail", method = RequestMethod.GET)
+    public String userdetail(){
+        return "admin/user_detail";
     }
 }
