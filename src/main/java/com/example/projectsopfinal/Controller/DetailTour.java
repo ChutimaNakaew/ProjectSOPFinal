@@ -37,6 +37,11 @@ public class DetailTour {
         return "user/Payment";
     }
 
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public String main() {
+        return "user/main";
+    }
+
     @RequestMapping(value = "/notPass", method = RequestMethod.GET)
     public String notPass() {
         return "admin/notPass";
@@ -85,10 +90,5 @@ public class DetailTour {
     @RequestMapping(value = "/addtour", method = RequestMethod.GET)
     public String addtour() {
         return "admin/addtour";
-    }
-
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String main() {
-        return "user/main";
     }
 }
