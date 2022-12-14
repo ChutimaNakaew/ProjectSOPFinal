@@ -8,62 +8,54 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DetailTour {
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detailTour() {
+    public String detailTour(){
         return "user/DetailTour";
     }
-
     @RequestMapping(value = "/confirm", method = RequestMethod.GET)
-    public String confirmTour() {
+    public String confirmTour(){
         return "user/ConfirmTour";
     }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
+    public String login(){
         return "admin/AdminLogin";
     }
-
     @RequestMapping(value = "/listname", method = RequestMethod.GET)
-    public String listName() {
+    public String listName(){
         return "admin/AdminViewListName";
     }
-
     @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public String form() {
+    public String form(){
         return "user/Form";
     }
-
     @RequestMapping(value = "/payment", method = RequestMethod.GET)
-    public String payment() {
+    public String payment(){
         return "user/Payment";
     }
-
     @RequestMapping(value = "/notPass", method = RequestMethod.GET)
-    public String notPass() {
+    public String notPass(){
         return "admin/notPass";
     }
-
     @RequestMapping(value = "/userdetail", method = RequestMethod.GET)
-    public String userdetail() {
+    public String userdetail(){
         return "admin/user_detail";
     }
-
     @RequestMapping(value = "/adminHome", method = RequestMethod.GET)
-    public String adminHome() {
+    public String adminHome(){
         return "admin/adminHome";
     }
 
     @RequestMapping(value = "/adminAllBooking", method = RequestMethod.GET)
-    public String adminAllBooking() {
+    public String adminAllBooking(){
         return "admin/adminAllBooking";
     }
 
     @RequestMapping(value = "/adminPayment", method = RequestMethod.GET)
-    public String adminPayment() {
+    public String adminPayment(){
         return "admin/adminPayment";
     }
 
     @RequestMapping(value = "/adminPaymentApprove", method = RequestMethod.GET)
-    public String adminPaymentApprove() {
+    public String adminPaymentApprove(){
         return "admin/adminPaymentApprove";
     }
 }
