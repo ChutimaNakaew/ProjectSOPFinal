@@ -86,4 +86,9 @@ public class DetailTour {
     public String addtour() {
         return "admin/addtour";
     }
+
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    public String main() {
+        return "user/main";
+    }
 }
