@@ -9,7 +9,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class DetailTour {
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     public String detailTour(){
-        return "DetailTour";
+        return "user/DetailTour";
+    }
+    @RequestMapping(value = "/confirm", method = RequestMethod.GET)
+    public String confirmTour(){
+        return "user/ConfirmTour";
+    }
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(){
+        return "admin/AdminLogin";
+    }
+    @RequestMapping(value = "/listname", method = RequestMethod.GET)
+    public String listName(){
+        return "admin/AdminViewListName";
     }
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String form(){
