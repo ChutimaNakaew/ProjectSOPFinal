@@ -58,4 +58,15 @@ public class DetailTour {
     public String adminPaymentApprove(){
         return "admin/adminPaymentApprove";
     }
+    @RequestMapping(value = "/maintour", method = RequestMethod.GET)
+    public String maintour(){
+        return "admin/maintour";
+    }
+    @RequestMapping(value = "/addtour", method = RequestMethod.GET)
+    public String addtour(){
+        return "admin/addtour";
+    }
+
+
+
 }
