@@ -26,8 +26,8 @@ public class TourService {
         tourRepository.deleteAll();
     }
 
-    public void deleteTourById(String id){
-        tourRepository.deleteById(id);
+    public Tour detailTourByName(String name){
+        return tourRepository.findByName(name);
     }
 
     public Optional<Tour> findTourById(String id){

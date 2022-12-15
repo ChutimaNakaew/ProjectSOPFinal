@@ -31,24 +31,7 @@
         <div class="card-body">
             <div class="tourTable">
                 <h4>ตารางการเดินทาง</h4>
-                <p> 07.30 น. รถรับจากโรงแรม เดินทางสู่ท่าเรือ เช็คอิน ที่ท่าเรือมีบริการเครื่องดื่ม ชา กาแฟ อาหารว่าง
-                    <br>
-                    09.00 น. ออกเดินทางไปยังหมู่เกาะพีพีเล
-                    <br>
-                    10.00 น. ลงอ่าวมาหยา สถานที่ถ่ายทำภาพยนตร์เรื่อง“เดอะบีช” (ถ่ายรูปบนเรือ)
-                    และเดินทางต่อไปดำน้ำที่อ่าวโละซามะมีปะการังและสัตว์ทะเลนานาชนิด
-                    จากนั้นแวะอ่าวปิเละ หยุดให้กระโดดน้ำเล่น จุดนี้วิวล้อมรอบด้วยเขาหินปูนที่สวยงาม
-                    น้ำทะเลสีเขียวมรกตแวะถ่ายรูปที่ถ้ำไวกิ้งสถานที่เก็บรังนกนางแอ่น และไปชมลิงแสมทะเล ที่หาดลิง ดำน้ำ 1
-                    จุดบริเวณพีพีดอน
-                    <br>
-                    12.30 น. รับประทานอาหารบุพเฟ่กลางวัน ที่อ่าวต้นไทร พีพีดอน
-                    มีเวลาสามารถเลือกซื้อของฝากตามร้านค้าบนเกาะ
-                    <br>
-                    13.30 น. ออกเดินทางสู่เกาะไข่เกาะเล็กๆ รูปทรงไข่ดาว กลางท้องทะเล
-                    ท่านสามารถดำน้ำตื้นชมปะการังและว่ายน้ำกับฝูงปลาตามอัธยาศัย
-                    <br>
-                    16.30 น. ออกเดินทางกลับสู่ท่าเรือ และนำท่านส่งโรงแรมที่พักโดยสวัสดิภาพ
-                </p>
+                <p th:text="${tour.detail.schedule}"></p>
             </div>
         </div>
     </div>
@@ -63,9 +46,8 @@
                             เลือกวันเดินทาง
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">16-01-2566</a></li>
-                            <li><a class="dropdown-item" href="#">20-02-2566</a></li>
-                            <li><a class="dropdown-item" href="#">25-02-2566</a></li>
+                            <li><a class="dropdown-item" href="#" th:text="${tour.detail.date.first}"></a></li>
+                            <li><a class="dropdown-item" href="#" th:text="${tour.detail.date.second}"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,12 +58,12 @@
                 <div class="col-3">
                     <div class="row">
                         <h4>ราคา</h4>
-                        <div class="col-3">
+                        <div class="col-4">
                             <p style="color: #2b99ff;">THB
-                                <span>1400</span>
+                                <span th:text="${tour.price}"></span>
                             </p>
                         </div>
-                        <div class="col-9">
+                        <div class="col-8">
                             <div class="input-group mx-5" style="width: 100%;">
                   <span class=" input-group-btn" style="width: 15%;">
                     <button style="height: 100%;" type="button" class="quantity-left-minus btn btn-danger btn-number"
