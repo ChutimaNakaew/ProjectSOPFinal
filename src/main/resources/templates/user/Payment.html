@@ -35,7 +35,7 @@
   <div class="row">
     <div class="col-12 d-flex
                     align-items-center flex-column">
-      <div class="card " style="width: 90rem;">
+      <div class="card " style="width: 90rem;" >
         <div class="card-body">
           <div class="row">
             <div class="col-12">
@@ -44,20 +44,20 @@
               </h4>
             </div>
           </div>
-          <div class="row mt-3">
-            <div class="col-6 p-2">
+          <div class="row mt-3 " >
+            <div class="col-6 p-2 d-inline" th:each="pay : ${payments}">
               <div class="row p-2">
                 <div class="col-4">
-                  <img src="kbank.png">
+                  <img  th:src="${pay.account_img}">
                 </div>
                 <div class="col-8">
-                  <p>ธนาคารกสิกรไทย</p>
+                  <p th:text="${pay.name}"></p>
                   <div class="row">
                     <div class="col">
-                      <p>หมายเลขบัญชี</p>
+                      <p >หมายเลขบัญชี</p>
                     </div>
                     <div class="col">
-                      <p>123-4-56789-0</p>
+                      <p th:text="${pay.account_number}"></p>
                     </div>
                   </div>
                   <div class="row">
@@ -65,146 +65,38 @@
                       <p>ชื่อบัญชี</p>
                     </div>
                     <div class="col">
-                      <p>PaaPai Company</p>
+                      <p th:text="${pay.account_name}"></p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-6 p-2">
-              <div class="row p-2">
-                <div class="col-4">
-                  <img src="scb.png">
-                </div>
-                <div class="col-8">
-                  <p>ธนาคารไทยพาณิชย์</p>
-                  <div class="row">
-                    <div class="col">
-                      <p>หมายเลขบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>123-4-56789-0</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <p>ชื่อบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>PaaPai Company</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6 p-2">
-              <div class="row p-2">
-                <div class="col-4">
-                  <img src="krungthai.png">
-                </div>
-                <div class="col-8">
-                  <p>ธนาคารกรุงไทย</p>
-                  <div class="row">
-                    <div class="col">
-                      <p>หมายเลขบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>123-4-56789-0</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <p>ชื่อบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>PaaPai Company</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 p-2">
-              <div class="row p-2">
-                <div class="col-4">
-                  <img src="krungsri.jpg">
-                </div>
-                <div class="col-8">
-                  <p>ธนาคารกรุงศรีอยุธยา</p>
-                  <div class="row">
-                    <div class="col">
-                      <p>หมายเลขบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>123-4-56789-0</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <p>ชื่อบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>PaaPai Company</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6 p-2">
-              <div class="row p-2">
-                <div class="col-4">
-                  <img src="aomsin.png">
-                </div>
-                <div class="col-8">
-                  <p>ธนาคารออมสิน</p>
-                  <div class="row">
-                    <div class="col">
-                      <p>หมายเลขบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>123-4-56789-0</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <p>ชื่อบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>PaaPai Company</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 p-2">
-              <div class="row p-2">
-                <div class="col-4">
-                  <img src="tmb.jpg">
-                </div>
-                <div class="col-8">
-                  <p>ธนาคารทหารไทย</p>
-                  <div class="row">
-                    <div class="col">
-                      <p>หมายเลขบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>123-4-56789-0</p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <p>ชื่อบัญชี</p>
-                    </div>
-                    <div class="col">
-                      <p>PaaPai Company</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!--            <div class="col-6 p-2">-->
+            <!--              <div class="row p-2">-->
+            <!--                <div class="col-4">-->
+            <!--                  <img src="scb.png">-->
+            <!--                </div>-->
+            <!--                <div class="col-8">-->
+            <!--                  <p>ธนาคารไทยพาณิชย์</p>-->
+            <!--                  <div class="row">-->
+            <!--                    <div class="col">-->
+            <!--                      <p>หมายเลขบัญชี</p>-->
+            <!--                    </div>-->
+            <!--                    <div class="col">-->
+            <!--                      <p>123-4-56789-0</p>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                  <div class="row">-->
+            <!--                    <div class="col">-->
+            <!--                      <p>ชื่อบัญชี</p>-->
+            <!--                    </div>-->
+            <!--                    <div class="col">-->
+            <!--                      <p>PaaPai Company</p>-->
+            <!--                    </div>-->
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
           </div>
           <div class="row">
             <div class="col-12 d-flex
@@ -215,8 +107,118 @@
             </div>
 
           </div>
+          <!--          <div class="row">-->
+          <!--            <div class="col-6 p-2">-->
+          <!--              <div class="row p-2">-->
+          <!--                <div class="col-4">-->
+          <!--                  <img src="krungthai.png">-->
+          <!--                </div>-->
+          <!--                <div class="col-8">-->
+          <!--                  <p>ธนาคารกรุงไทย</p>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>หมายเลขบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>123-4-56789-0</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>ชื่อบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>PaaPai Company</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div class="col-6 p-2">-->
+          <!--              <div class="row p-2">-->
+          <!--                <div class="col-4">-->
+          <!--                  <img src="krungsri.jpg">-->
+          <!--                </div>-->
+          <!--                <div class="col-8">-->
+          <!--                  <p>ธนาคารกรุงศรีอยุธยา</p>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>หมายเลขบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>123-4-56789-0</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>ชื่อบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>PaaPai Company</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--          </div>-->
+          <!--          <div class="row">-->
+          <!--            <div class="col-6 p-2">-->
+          <!--              <div class="row p-2">-->
+          <!--                <div class="col-4">-->
+          <!--                  <img src="aomsin.png">-->
+          <!--                </div>-->
+          <!--                <div class="col-8">-->
+          <!--                  <p>ธนาคารออมสิน</p>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>หมายเลขบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>123-4-56789-0</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>ชื่อบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>PaaPai Company</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--            <div class="col-6 p-2">-->
+          <!--              <div class="row p-2">-->
+          <!--                <div class="col-4">-->
+          <!--                  <img src="tmb.jpg">-->
+          <!--                </div>-->
+          <!--                <div class="col-8">-->
+          <!--                  <p>ธนาคารทหารไทย</p>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>หมายเลขบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>123-4-56789-0</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                  <div class="row">-->
+          <!--                    <div class="col">-->
+          <!--                      <p>ชื่อบัญชี</p>-->
+          <!--                    </div>-->
+          <!--                    <div class="col">-->
+          <!--                      <p>PaaPai Company</p>-->
+          <!--                    </div>-->
+          <!--                  </div>-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <!--          </div>-->
+
         </div>
       </div>
+
     </div>
   </div>
   <!-- Modal -->

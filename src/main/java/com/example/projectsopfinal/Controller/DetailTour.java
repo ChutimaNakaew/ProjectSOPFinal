@@ -32,10 +32,10 @@ public class DetailTour {
         return "user/Form";
     }
 
-    @RequestMapping(value = "/payment", method = RequestMethod.GET)
-    public String payment() {
-        return "user/Payment";
-    }
+//    @RequestMapping(value = "/payment", method = RequestMethod.GET)
+//    public String payment() {
+//        return "user/Payment";
+//    }
 
 //    @RequestMapping(value = "/main", method = RequestMethod.GET)
 //    public String main() {

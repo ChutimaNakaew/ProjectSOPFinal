@@ -11,6 +11,14 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 50%;
+
+
+        }
     </style>
 </head>
 
@@ -66,35 +74,35 @@
         <h4 style="margin-bottom: 20px;">รวมแพ็กเกจทัวร์</h4>
 
         <div class="row">
-            <div class="col-6">
-<!--                <div class="card my-2" style="width: 18rem;">-->
-                    <img src="sea.jpg" class="card-img-top" alt="...">
-                    <div class="card-body my-2" th:each="tour : ${tours}">
-                        <h5 class="card-title" th:text="${tour.name}"></h5>
-                        <!--                            <h5 class="card-title">ทัวร์ภูเก็ต</h5>-->
-                        <hr>
-                        <div style="display: flex; margin-top: 10px; margin-bottom: 10px;">
-                            <i class="fa fa-search"></i>
-                            <p class="card-text mx-2" th:text="${tour.province}"></p>
+            <div class="col-4 " th:each="tour : ${tours}">
+                <!--                <div class="card my-2" style="width: 18rem;">-->
+                <img th:src="${tour.img}" class="card-img-top" alt="...">
+                <div class="card-body my-2 " >
+                    <h5 class="card-title" th:text="${tour.name}"></h5>
+                    <!--                            <h5 class="card-title">ทัวร์ภูเก็ต</h5>-->
+                    <hr>
+                    <div style="display: flex; margin-top: 10px; margin-bottom: 10px;">
+                        <i class="fa fa-search"></i>
+                        <p class="card-text mx-2" th:text="${tour.province}"></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p>ราคาเริ่มต้น</p>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p>ราคาเริ่มต้น</p>
-                            </div>
-                            <div class="col-3" style="text-align: end;">
-                                <p style="font-weight: bold;">THB</p>
-                            </div>
-                            <div class="col-3">
-                                <p th:text="${tour.price}">1,520</p>
-                            </div>
+                        <div class="col-3" style="text-align: end;">
+                            <p style="font-weight: bold;">THB</p>
                         </div>
-                        <div style="text-align: end;">
-                            <a href="/detail" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
+                        <div class="col-3">
+                            <p th:text="${tour.price}">1,520</p>
                         </div>
                     </div>
+                    <div style="text-align: end;">
+                        <a href="/detail" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
+                    </div>
                 </div>
+            </div>
 
-<!--            </div>-->
+            <!--            </div>-->
             <!--                <div class="col-4">-->
             <!--                    <div class="card" style="width: 18rem;">-->
             <!--                        <img src="sea.jpg" class="card-img-top" alt="...">-->
