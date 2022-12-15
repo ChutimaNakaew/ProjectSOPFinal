@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class DetailTour {
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detailTour() {
-        return "user/DetailTour";
-    }
+//    @RequestMapping(value = "/detail", method = RequestMethod.GET)
+//    public String detailTour() {
+//        return "user/DetailTour";
+//    }
 
     @RequestMapping(value = "/confirm", method = RequestMethod.GET)
     public String confirmTour() {
@@ -37,10 +37,10 @@ public class DetailTour {
         return "user/Payment";
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String main() {
-        return "user/main";
-    }
+//    @RequestMapping(value = "/main", method = RequestMethod.GET)
+//    public String main() {
+//        return "user/main";
+//    }
 
     @RequestMapping(value = "/notPass", method = RequestMethod.GET)
     public String notPass() {

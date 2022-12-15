@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -14,8 +14,8 @@
     <style> @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap'); </style>
 </head>
 <body>
-<div class="container-fluid mb-3 mt-2" style="font-family: 'Kanit', sans-serif;">
-    <h1>ทัวร์ภูเก็ต</h1>
+<div th:each="tour : ${tours}" class="container-fluid mb-3 mt-2" style="font-family: 'Kanit', sans-serif;">
+    <h1 th:text="${tour.name}"></h1>
     <hr>
     <img src="phuket-detail.webp" width="400" height="200"
          style="object-fit: cover; display: block; margin: auto;">
@@ -23,10 +23,7 @@
         <div class="card-body">
             <div class="detail">
                 <h4>รายละเอียด</h4>
-                <p>ทัวร์ภูเก็ต หมู่เกาะพีพีเล อ่าวมาหยา ถ้ำไวกิ้ง ดำน้ำ อิ่มบุฟเฟ่ต์ โปรโมชั่น เที่ยววันเดียว แวะลงหาด
-                    ดำน้ำ กิจกรรมมากมาย พีพี เล่นน้ำที่อ่าวปิเละ ชมและถ่ายรูปถ้ำไวกิ้ง
-                    แถมได้ลงไปถ่ายรูปกับลิงที่หาดลิงด้วย สุดท้ายจะพาแวะเกาะไข่ เกาะเล็กๆ ทีมีเสน่ห์เหลือเกิน
-                </p>
+                <p th:text="${tour.detail.detail}"></p>
             </div>
         </div>
     </div>
