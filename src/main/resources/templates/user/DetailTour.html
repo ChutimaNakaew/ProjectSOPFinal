@@ -7,17 +7,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script type="text/javascript" th:src="@{/js/cssandjs/actions.js}"></script>
     <meta charset="UTF-8">
     <title>Detail Tour</title>
-    <style> @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap'); </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+    </style>
 </head>
+
 <body>
 <div th:each="tour : ${tours}" class="container-fluid mb-3 mt-2" style="font-family: 'Kanit', sans-serif;">
     <h1 th:text="${tour.name}"></h1>
     <hr>
-    <img src="phuket-detail.webp" width="400" height="200"
+    <img th:src="${tour.detail.detail_img}" width="400" height="200"
          style="object-fit: cover; display: block; margin: auto;">
     <div class="card shadow-sm p-1 my-3 bg-body rounded">
         <div class="card-body">
@@ -46,8 +50,10 @@
                             เลือกวันเดินทาง
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" th:text="${tour.detail.date.first}"></a></li>
-                            <li><a class="dropdown-item" href="#" th:text="${tour.detail.date.second}"></a></li>
+                            <li><a class="dropdown-item" href="#"
+                                   th:text="${#dates.format(tour.detail.date.first, 'dd-MM-yyyy')}"></a></li>
+                            <li><a class="dropdown-item" href="#"
+                                   th:text="${#dates.format(tour.detail.date.second, 'dd-MM-yyyy')}"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,20 +71,24 @@
                         </div>
                         <div class="col-8">
                             <div class="input-group mx-5" style="width: 100%;">
-                  <span class=" input-group-btn" style="width: 15%;">
-                    <button style="height: 100%;" type="button" class="quantity-left-minus btn btn-danger btn-number"
-                            data-type="minus" data-field="">
-                      <i class="fa-solid fa-minus"></i>
-                    </button>
-                  </span>
+                                <span class=" input-group-btn" style="width: 15%;">
+                                    <button onclick="document.getElementById('people').innerHTML = changePeopleMinus()"
+                                            style="height: 100%;" type="button"
+                                            class="quantity-left-minus btn btn-danger btn-number"
+                                            data-type="minus" data-field="">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                </span>
                                 <input type="text" id="quantity" name="quantity" class="form-control input-number"
                                        value="1" min="1" max="100">
                                 <span class="input-group-btn" style="width: 65%;">
-                    <button style="height: 100%;" type="button" class="quantity-right-plus btn btn-success btn-number"
-                            data-type="plus" data-field="">
-                      <i class="fa-solid fa-plus"></i>
-                    </button>
-                  </span>
+                                    <button onclick="document.getElementById('people').innerHTML = changePeoplePlus()"
+                                            style="height: 100%;" type="button"
+                                            class="quantity-right-plus btn btn-success btn-number"
+                                            data-type="plus" data-field="">
+                                    <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -88,10 +98,12 @@
                         <div class="row">
                             <hr>
                             <div class="col-4">
-                                <p>ราคาทั้งหมด <span style="color: #2b99ff;">2</span> ท่าน </p>
+                                <p>ราคาทั้งหมด <span style="color: #2b99ff;" th:id="people"></span> ท่าน </p>
                             </div>
                             <div class="col-2">
-                                <p style="color: #2b99ff; margin-left: 12px;">THB <span>2800</span></p>
+                                <p style="color: #2b99ff; margin-left: 12px;">THB <span th:id="cost"
+                                                                                        th:text="${tour.price * 1}"></span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -100,7 +112,7 @@
         </div>
     </div>
     <div class="row justify-content-end">
-        <a href="http://localhost:8080/form" type="button" class="btn btn-primary col-1 mx-3">จองทัวร์</a>
+        <a th:href="@{/form/{name}(name=${tour.name})}" type="button" class="btn btn-primary col-1 mx-3">จองทัวร์</a>
     </div>
 </div>
 </body>
@@ -139,6 +151,27 @@
         });
 
     });
+
+    document.getElementById('people').innerHTML = "1"
+
+    function changePeoplePlus() {
+        let numPeople = parseInt($('#quantity').val());
+        return numPeople + 1
+    }
+
+    function changePeopleMinus() {
+        const numPeople = parseInt($('#quantity').val());
+        if (numPeople > 0) {
+            return numPeople - 1
+        } else if (numPeople <= 0) {
+            return 0
+        }
+    }
+
+</script>
+<script th:inline="javascript">
+    // let price = document.getElementById('price')
+    // document.getElementById('cost').innerHTML = document.getElementById('price')
 </script>
 
 </html>
