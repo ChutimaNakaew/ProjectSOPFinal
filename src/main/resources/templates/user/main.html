@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div style="text-align: end;">
-                        <a href="/detail" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
+                        <a th:href="@{/detail/{name}(name=${tour.name})}" class="btn btn-primary">รายละเอียดเพิ่มเติม</a>
                     </div>
                 </div>
             </div>
