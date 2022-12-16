@@ -25,4 +25,9 @@ public class TourThymeleafController {
         model.addAttribute("tours", tourService.detailTourByName(name));
         return "user/DetailTour";
     }
+    @GetMapping("/maintour")
+    public String maintours(Model model){
+        model.addAttribute("tours", tourService.getAllTours());
+        return "admin/maintour";
+    }
 }
