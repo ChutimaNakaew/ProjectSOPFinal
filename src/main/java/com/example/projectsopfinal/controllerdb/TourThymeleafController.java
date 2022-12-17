@@ -86,4 +86,11 @@ public class TourThymeleafController {
         tourService.saveTour(tour);
         return "redirect:maintour";
     }
+
+    @GetMapping("/delete-reservation/{id}")
+    public String removeTour(@PathVariable("id") String id, Model model) {
+        tourService.deleteTourById(id);
+        model.addAttribute("tour", tourService.getAllTours());
+        return "redirect:/maintour";
+    }
 }

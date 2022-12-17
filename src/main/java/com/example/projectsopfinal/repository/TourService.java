@@ -30,6 +30,10 @@ public class TourService {
         return tourRepository.findByName(name);
     }
 
+    public void deleteTourById(String id){
+        tourRepository.deleteById(id);
+    }
+
     public Optional<Tour> findTourById(String id){
         return tourRepository.findById(id);
     }
