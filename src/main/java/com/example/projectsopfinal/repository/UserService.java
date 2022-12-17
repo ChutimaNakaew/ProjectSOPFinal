@@ -1,6 +1,5 @@
 package com.example.projectsopfinal.repository;
 
-import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +15,16 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User saveUser(User user) {
+    public User save(User user) {
         return userRepository.save(user);
     }
 
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public Optional<User> findUserById(String id){
+        return userRepository.findById(id);
     }
 
 }

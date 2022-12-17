@@ -79,8 +79,10 @@
                 </div>
             </div>
             <div class="row mt-2 border">
-                <div class="col-12">
-                    <form class="m-4" th:action="@{/save-user}" th:object="${user}" method="post">
+                <div class="col-12" th:each="tour : ${tours}">
+                    <form class="m-4" th:action="@{/save-user}" th:object="${user}"
+                          method="post">
+                        <!--                        <input type="hidden" th:value="${user.id}" name="id"/>-->
                         <div class="col-12">
                             <h5>แบบฟอร์มการจองสำหรับติดต่อ</h5>
                         </div>
@@ -123,7 +125,18 @@
                             <div class="card my-3">
                                 <div class="card-body">
                                     <div class="row" th:each="tour : ${tours}">
-                                        <div class="col-6">
+                                        <div class="col-4">
+                                            <h5>ชื่อทัวร์</h5>
+                                            <div class="form-group">
+                                                <select class="form-select" th:field="*{tour_name}">
+                                                    <option selected th:each="tour : ${tours.name}"
+                                                            th:value="${tour}"
+                                                            th:text="${tour}">
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
                                             <h5>วันเดินทาง</h5>
                                             <div class="form-group">
                                                 <select class="form-select" th:field="*{date}" id="date">
@@ -134,30 +147,16 @@
                                                     </option>
                                                 </select>
                                             </div>
-<!--                                            <div class="dropdown">-->
-<!--                                                <button type="button" class="btn btn-primary dropdown-toggle"-->
-<!--                                                        data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--                                                    เลือกวันเดินทาง-->
-<!--                                                </button>-->
-<!--                                                <ul class="dropdown-menu">-->
-<!--                                                    <li><a class="dropdown-item" th:value="*{date}"-->
-<!--                                                           th:text="${#dates.format(tour.detail.date.first, 'dd-MM-yyyy')}"></a>-->
-<!--                                                    </li>-->
-<!--                                                    <li><a class="dropdown-item" th:value="*{date}"-->
-<!--                                                           th:text="${#dates.format(tour.detail.date.second, 'dd-MM-yyyy')}"></a>-->
-<!--                                                    </li>-->
-<!--                                                </ul>-->
-<!--                                            </div>-->
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-4">
                                             <h5>ผู้เดินทาง</h5>
-                                                <div class="input-group">
-                                                    <span class="input-group-text"><i class="fa-solid fa-person fa-xl"></i></span>
-                                                    <input th:field="*{total_tourist}" id="people" onchange="changePeople()"
-                                                           class="form-outline form-control w-50"
-                                                           type="number" min="1" placeholder="1" >
-                                                    <span class="input-group-text">คน</span>
-                                                </div>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fa-solid fa-person fa-xl"></i></span>
+                                                <input th:field="*{total_tourist}"
+                                                       class="form-outline form-control w-50"
+                                                       type="number" min="1" placeholder="1">
+                                                <span class="input-group-text">คน</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

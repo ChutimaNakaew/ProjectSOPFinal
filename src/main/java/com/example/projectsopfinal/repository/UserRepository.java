@@ -10,4 +10,5 @@ public interface UserRepository extends CrudRepository<User, String> {
 
     @Query(value = "{name: '?0'}")
     public User findByName(String name);
+
 }

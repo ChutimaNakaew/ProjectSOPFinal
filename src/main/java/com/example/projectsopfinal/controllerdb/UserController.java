@@ -27,9 +27,19 @@ public class UserController {
             System.out.println(bindingResult);
             return "user/main";
         }
-        userService.saveUser(user);
-        return "redirect:main";
+        userService.save(user);
+        return "user/UserBooking";
     }
+//    @GetMapping("/tourUser")
+//    public String userTour(Model model) {
+//        model.addAttribute("user", userService.getAllUsers());
+//        return "user/UserBooking";
+//    }
+//    @GetMapping("/confirm/{id}")
+//    public String formTour(@PathVariable("id") String id, Model model) {
+//        model.addAttribute("user", userService.findUserById(id));
+//        return "user/DetailTour";
+//    }
 
     @GetMapping("/adminViewlist")
     public String ShowUser(Model model){
