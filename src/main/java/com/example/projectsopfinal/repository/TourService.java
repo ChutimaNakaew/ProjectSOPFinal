@@ -33,4 +33,8 @@ public class TourService {
     public Optional<Tour> findTourById(String id){
         return tourRepository.findById(id);
     }
+
+    public Iterable<Tour> getToursByProvince(String province){
+        return tourRepository.findByProvince(province);
+    }
 }

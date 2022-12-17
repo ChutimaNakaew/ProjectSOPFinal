@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.constraints.Null;
 
 
 @Controller
@@ -20,8 +23,16 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/main")
-    public String tours(Model model) {
-        model.addAttribute("tours", tourService.getAllTours());
+    public String tours(@RequestParam(value = "provinces", required=false) String provinces, Model model) {
+//        model.addAttribute("tours", tourService.getAllTours());
+//        System.out.println(provinces);
+//        return "user/main";
+        if (provinces == null || provinces == ""){
+            model.addAttribute("tours", tourService.getAllTours());
+        }
+        else {
+            model.addAttribute("tours", tourService.getToursByProvince(provinces));
+        }
         return "user/main";
     }
 //    @GetMapping("/main")
@@ -29,7 +40,6 @@ public class TourThymeleafController {
 //        model.addAttribute("provinces", provinceService.getAllProvinces());
 //        return "user/main";
 //    }
-
     @GetMapping("/detail/{name}")
     public String detail(@PathVariable("name") String name, Model model) {
         model.addAttribute("tours", tourService.detailTourByName(name));
@@ -45,6 +55,12 @@ public class TourThymeleafController {
     @GetMapping("/maintour")
     public String maintours(Model model){
         model.addAttribute("tours", tourService.getAllTours());
+//        if (provinces == null || provinces == ""){
+//            model.addAttribute("tours", tourService.getAllTours());
+//        }
+//        else {
+//            model.addAttribute("tours", tourService.getToursByProvince(provinces));
+//        }
         return "admin/maintour";
     }
 }
