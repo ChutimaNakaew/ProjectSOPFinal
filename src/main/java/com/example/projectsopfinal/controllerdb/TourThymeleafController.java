@@ -56,14 +56,14 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/maintour")
-    public String maintours(Model model){
-        model.addAttribute("tours", tourService.getAllTours());
-//        if (provinces == null || provinces == ""){
-//            model.addAttribute("tours", tourService.getAllTours());
-//        }
-//        else {
-//            model.addAttribute("tours", tourService.getToursByProvince(provinces));
-//        }
+    public String maintours(@RequestParam(value = "provinces", required=false) String provinces, Model model){
+//        model.addAttribute("tours", tourService.getAllTours());
+        if (provinces == null || provinces == ""){
+            model.addAttribute("tours", tourService.getAllTours());
+        }
+        else {
+            model.addAttribute("tours", tourService.getToursByProvince(provinces));
+        }
         return "admin/maintour";
     }
 }
