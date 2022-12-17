@@ -1,194 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <!--    <title>Title</title>-->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
-    .border
-    {border: 1px solid #a6a6a6}
-    .require{
-      color: red;
-    }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <meta charset="UTF-8">
+    <!--    <title>Title</title>-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 
-  </style>
+        .border {
+            border: 1px solid #a6a6a6
+        }
+
+        .require {
+            color: red;
+        }
+
+    </style>
 </head>
 <body>
 <div class="container-fluid" style="font-family: 'Kanit', sans-serif;">
 
-   <h1>กรอกรายละเอียดสำหรับติดต่อ</h1>
-  <hr>
-  <div class="row justify-content-md-center">
-    <div class="col-8 gap-5">
-      <div class="row border">
-        <div class="col-12">
-          <div class="row m-3">
-
-            <h5>สรุปรายการจองทัวร์</h5>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="row m-2">
-            <div class="col">
-              <img src="phuket.png"
-                   width="400" height="200">
-            </div>
-            <div class="col">
-              <div class="row">
-                <div class="col">
-                  <h5>ทัวร์ภูเก็ต</h5>
-                </div>
-                <div class="col"></div>
-
-              </div>
-              <div class="row">
-                <div class="col">
-                  <p>จังหวัด</p>
-                </div>
-                <div class="col">
-                  <p>ภูเก็ต</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <p>เดินทาง</p>
-                </div>
-                <div class="col">
-                  <p> 28 ธ.ค. 65 - 1 ม.ค. 66</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <p>จำนวนผู้เดินทาง</p>
-                </div>
-                <div class="col">
-                  <p>2 ท่าน</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <p>ราคารวม</p>
-                </div>
-                <div class="col">
-                  <p>2800 THB</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-2 border" >
-        <div class="col-12">
-          <form class="m-4" action="http://localhost:8080/confirm">
-            <!-- <div class="row"id="border"> -->
-            <div class="col-12">
-              <h5>แบบฟอร์มการจองสำหรับติดต่อ</h5>
-              <!-- </div> -->
-            </div>
-            <div class="col-12 mt-2">
-              <div class="row">
-                <div class="col-6">
-                  <label for="exampleInputEmail1"
-                         class="form-label">ชื่อผู้ติดต่อ
-                    <span class="require">*</span></label>
-                  <input type="email"
-                         class="form-control"
-                         id="exampleInputEmail1"
-                         aria-describedby="emailHelp">
-                </div>
-                <div class="col-6">
-                  <label for="exampleInputEmail1"
-                         class="form-label">นามสกุลผู้ติดต่อ
-                    <span class="require">*</span></label>
-                  <input type="email"
-                         class="form-control"
-                         aria-describedby="emailHelp">
-                </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col-6">
-                  <label for="exampleInputEmail1"
-                         class="form-label">หมายเลขโทรศัพท์
-                    <span class="require">*</span></label>
-                  <input type="email"
-                         class="form-control"
-                         aria-describedby="emailHelp">
-                </div>
-                <div class="col-6">
-                  <label for="exampleInputEmail1"
-                         class="form-label">Email <span class="require">*</span></label>
-                  <input type="email"
-                         class="form-control"
-                         aria-describedby="emailHelp">
-                </div>
-              </div>
-              <div class="row mt-2">
+    <h1>กรอกรายละเอียดสำหรับติดต่อ</h1>
+    <hr>
+    <div class="row justify-content-md-center">
+        <div class="col-8 gap-5">
+            <div th:each="tour : ${tours}" class="row border">
                 <div class="col-12">
-                  <label
-                          for="exampleFormControlTextarea1"
-                          class="form-label">หมายเหตุ
-                  </label>
-                  <textarea class="form-control"
-                            id="exampleFormControlTextarea1"
-                            rows="3"></textarea>
+                    <div class="row m-3">
+
+                        <h5>สรุปรายการจองทัวร์</h5>
+                    </div>
                 </div>
-              </div>
-              <div class="mt-2" style="text-align: end;">
-                  <a href="http://localhost:8080/detail" type="button" class="btn btn-secondary">ย้อนกลับ</a>
-                  <a href="http://localhost:8080/confirm" type="button" class="btn btn-primary">ส่งฟอร์ม</a>
+                <div class="col-12">
+                    <div class="row m-2">
+                        <div class="col">
+                            <img th:src="${tour.img}"
+                                 width="400" height="200">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 th:text="${tour.name}"></h5>
+                                </div>
+                                <div class="col"></div>
 
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>จังหวัด</p>
+                                </div>
+                                <div class="col">
+                                    <p th:text="${tour.province}"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>เดินทาง</p>
+                                </div>
+                                <div class="col">
+                                    <p> 28 ธ.ค. 65 - 1 ม.ค. 66</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>จำนวนผู้เดินทาง</p>
+                                </div>
+                                <div class="col">
+                                    <p>2 ท่าน</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>ราคารวม</p>
+                                </div>
+                                <div class="col">
+                                    <p>2800 THB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 border">
+                <div class="col-12">
+                    <form class="m-4" th:action="@{/save-user}" th:object="${user}" method="post" modelAttribute="user">
 
-              </div>
+                        <!-- <div class="row"id="border"> -->
+                        <div class="col-12">
+                            <h5>แบบฟอร์มการจองสำหรับติดต่อ</h5>
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label
+                                           class="form-label">ชื่อผู้ติดต่อ
+                                        <span class="require">*</span></label>
+                                    <input th:field="*{firstname}" type="text"
+                                           class="form-control"
+                                           id="firstname"
+                                           aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-6">
+                                    <label
+                                           class="form-label">นามสกุลผู้ติดต่อ
+                                        <span class="require">*</span></label>
+                                    <input th:field="*{lastname}" type="text"
+                                           class="form-control"
+                                           aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <label
+                                           class="form-label">หมายเลขโทรศัพท์
+                                        <span class="require">*</span></label>
+                                    <input th:field="*{phone}" type="text"
+                                           class="form-control"
+                                           aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-6">
+                                    <label
+                                           class="form-label">Email <span class="require">*</span></label>
+                                    <input th:field="*{email}" type="email"
+                                           class="form-control"
+                                           aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <label
+                                            for="exampleFormControlTextarea1"
+                                            class="form-label">หมายเหตุ
+                                    </label>
+                                    <textarea th:field="*{annotation}" class="form-control"
+                                              id="exampleFormControlTextarea1"
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div th:each="tour : ${tours}" class="mt-2" style="text-align: end;">
+                                <a th:href="@{/detail/{name}(name=${tour.name})}" type="button"
+                                   class="btn btn-secondary">ย้อนกลับ</a>
+                                <button type="submit" class="btn btn-primary">ส่งฟอร์ม</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 ">
+            <div class="row pb-4 border">
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <h5>ขั้นตอนการจองทัวร์ </h5>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <i class="bi bi-1-circle-fill text-primary"
+                       style="font-size: 3rem;"></i>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <p class="text-primary">
+                        กรอกรายละเอียดสำหรับติดต่อ
+                    </p>
+                </div>
+                <div class="col-12 d-flex justify-content-center my-5">
+                    <i class="bi bi-arrow-down text-muted"
+                       style="font-size: 5rem;"></i>
+                </div>
+                <div class="col-12 d-flex justify-content-center mt-3">
+                    <i class="bi bi-2-circle-fill text-muted"
+                       style="font-size: 3rem;"></i>
+                </div>
+                <div class="col-12 d-flex justify-content-center my-3">
+                    <p class="text-muted">
+                        ทำการชำระเงิน
+                    </p>
+                </div>
+                <br><br><br><br><br><br><br>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- <button type="button" class="btn btn-primary btn-md">ส่งฟอร์ม</button> -->
+                </div>
             </div>
 
-          </form>
         </div>
-      </div>
     </div>
-    <div class="col-3 ">
-      <div class="row pb-4 border" >
-        <div class="col-12 d-flex justify-content-center mt-3">
-          <h5>ขั้นตอนการจองทัวร์ </h5>
-        </div>
-        <div class="col-12 d-flex justify-content-center mt-3">
-          <i class="bi bi-1-circle-fill text-primary"
-             style="font-size: 3rem;"></i>
-        </div>
-        <div class="col-12 d-flex justify-content-center mt-3">
-          <p class="text-primary">
-            กรอกรายละเอียดสำหรับติดต่อ
-          </p>
-        </div>
-        <div class="col-12 d-flex justify-content-center my-5">
-          <i class="bi bi-arrow-down text-muted"
-             style="font-size: 5rem;"></i>
-        </div>
-        <div class="col-12 d-flex justify-content-center mt-3">
-          <i class="bi bi-2-circle-fill text-muted"
-             style="font-size: 3rem;"></i>
-        </div>
-        <div class="col-12 d-flex justify-content-center my-3">
-          <p class="text-muted">
-            ทำการชำระเงิน
-          </p>
-        </div>
-        <br><br><br><br><br><br><br>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <!-- <button type="button" class="btn btn-primary btn-md">ส่งฟอร์ม</button> -->
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

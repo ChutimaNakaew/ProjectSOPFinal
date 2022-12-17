@@ -27,10 +27,10 @@ public class DetailTour {
         return "admin/AdminViewListName";
     }
 
-    @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public String form() {
-        return "user/Form";
-    }
+//    @RequestMapping(value = "/form", method = RequestMethod.GET)
+//    public String form() {
+//        return "user/Form";
+//    }
 
 //    @RequestMapping(value = "/payment", method = RequestMethod.GET)
 //    public String payment() {
@@ -77,10 +77,10 @@ public class DetailTour {
         return "admin/admincheckpayment";
     }
 
-    @RequestMapping(value = "/maintour", method = RequestMethod.GET)
-    public String maintour() {
-        return "admin/maintour";
-    }
+//    @RequestMapping(value = "/maintour", method = RequestMethod.GET)
+//    public String maintour() {
+//        return "admin/maintour";
+//    }
 
     @RequestMapping(value = "/edittour", method = RequestMethod.GET)
     public String edittour() {

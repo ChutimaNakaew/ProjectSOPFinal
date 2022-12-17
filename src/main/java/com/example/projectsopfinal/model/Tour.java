@@ -20,5 +20,5 @@ public class Tour {
     private Double price;
     private String img;
     private Object detail;
-
+    private Integer people;
 }
