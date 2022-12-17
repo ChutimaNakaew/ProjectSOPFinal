@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +21,9 @@ public class Tour {
     private String province;
     private Double price;
     private String img;
+    private String detail_img;
     private Object detail;
     private Integer people;
+    private String schedule;
+    private Date date;
 }

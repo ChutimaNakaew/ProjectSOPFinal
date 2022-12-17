@@ -1,16 +1,18 @@
 package com.example.projectsopfinal.controllerdb;
 
 //import com.example.projectsopfinal.repository.ProvinceService;
+import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Null;
+import java.util.Optional;
 
 
 @Controller
@@ -65,5 +67,23 @@ public class TourThymeleafController {
             model.addAttribute("tours", tourService.getToursByProvince(provinces));
         }
         return "admin/maintour";
+    }
+
+    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
+    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
+        Tour tour = id.isPresent() ?
+                tourService.findTourById(id.get()).get() : new Tour();
+        model.addAttribute("tour", tour);
+        return "admin/add-edit";
+    }
+
+    @PostMapping("/save-reservation")
+    public String editTour(@ModelAttribute("tour") @Valid Tour tour,
+                           BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "admin/add-edit";
+        }
+        tourService.saveTour(tour);
+        return "redirect:maintour";
     }
 }

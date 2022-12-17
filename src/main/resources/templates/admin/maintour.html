@@ -128,7 +128,15 @@
         <h4 style="margin-bottom: 20px;">รวมแพ็กเกจทัวร์</h4>
 
         <div class="row">
-            <div class="col-4 " th:each="tour : ${tours}">
+            <div class="col-4 mt-2">
+                <div class="card" style="width: 26rem; height: 25rem">
+                    <!-- <img src="https://img.freepik.com/free-photo/beautiful-tropical-beach-sea-ocean-with-white-cloud-blue-sky-copyspace_74190-8663.jpg?w=360" class="card-img-top" alt="..."> -->
+                    <div class="card-body text-center" style="padding-top: 55%;">
+                        <h1><a th:href="@{/edit-add}" style="text-decoration: none; color: black;">+</a></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mt-2" th:each="tour : ${tours}">
                 <!--                <div class="card my-2" style="width: 18rem;">-->
                 <img th:src="${tour.img}" class="card-img-top" alt="...">
                 <div class="card-body my-2 " >
@@ -147,7 +155,7 @@
                             <p style="font-weight: bold;">THB</p>
                         </div>
                         <div class="col-3">
-                            <p th:text="${tour.price}">1,520</p>
+                            <p th:text="${tour.price}"></p>
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
