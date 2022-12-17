@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -26,5 +27,7 @@ public class Tour {
     private Object detail;
     private Integer people;
     private String schedule;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date;
+
 }
