@@ -27,11 +27,17 @@
 </head>
 
 <body>
-<div class="container p-3" style="font-family: 'Kanit', sans-serif;">
+<div class="container p-3">
     <div style="display: flex; justify-content: center; width: 100%;">
-        <div>
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+<!--        <div style="display: flex;">-->
+<!--            <input class="form-control" type="text" placeholder="Search.." name="search">-->
+<!--            <input class="btn"><i class="fa fa-search"></i></input>-->
+<!--        </div>-->
+        <div class="input-group mx-3" style="width: 250px">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-append">
+                <span class="input-group-text" style="height: 40px"><i class="fa fa-search"></i></span>
+            </div>
         </div>
 <!--        <div class="dropdown mx-3">-->
 <!--            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"-->
@@ -114,8 +120,9 @@
 <!--            </ul>-->
 <!--        </div>-->
         <form style="display: flex;" onsubmit="dof()">
-            <select name="provinces" id="provinces" class="mx-3">
+            <select name="provinces" id="provinces" class="mx-3 form-select" style="height: 40px">
                 <option value="">เลือกจังหวัด</option>
+                <option value="">รวมทุกจังหวัด</option>
                 <option value="กรุงเทพฯ">กรุงเทพมหานคร</option>
                 <option value="สมุทรปราการ">สมุทรปราการ</option>
                 <option value="นนทบุรี">นนทบุรี</option>
@@ -196,16 +203,16 @@
 
             </select>
             <div class="mx-3">
-                <input type="date" id="date" name="date">
+                <input class="form-control" type="date" id="date" name="date">
             </div>
-            <select name="filters" id="filters" class="mx-3">
+            <select name="filters" id="filters" class="mx-3 form-select" style="height: 40px">
                 <option value="รวมแพ็กเกจทัวร์">รวมแพ็กเกจทัวร์</option>
                 <option value="ราคาถูกที่สุด">ราคาถูกที่สุด</option>
                 <option value="ราคาแพงที่สุด">ราคาแพงที่สุด</option>
                 <option value="ความนิยม">ความนิยม</option>
                 <option value="ทัวร์แนะนำ">ทัวร์แนะนำ</option>
             </select>
-            <input class="mx-3" type="submit" value="ค้นหา">
+            <input class="mx-3 btn btn-primary" type="submit" value="ค้นหา" style="height: 40px">
         </form>
 <!--        <button type="button" class="btn btn-primary mx-3">ค้นหา</button>-->
     </div>
