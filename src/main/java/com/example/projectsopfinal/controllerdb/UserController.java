@@ -24,7 +24,8 @@ public class UserController {
     public String saveUser(@ModelAttribute("user") @Valid User user,
                            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "user/Form";
+            System.out.println(bindingResult);
+            return "user/main";
         }
         userService.saveUser(user);
         return "redirect:main";
