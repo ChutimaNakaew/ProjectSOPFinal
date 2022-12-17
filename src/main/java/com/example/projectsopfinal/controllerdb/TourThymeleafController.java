@@ -1,5 +1,6 @@
 package com.example.projectsopfinal.controllerdb;
 
+//import com.example.projectsopfinal.repository.ProvinceService;
 import com.example.projectsopfinal.repository.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class TourThymeleafController {
     private TourService tourService;
+//    private ProvinceService provinceService;
 
     @Autowired
     public TourThymeleafController(TourService tourService) {
@@ -22,6 +24,11 @@ public class TourThymeleafController {
         model.addAttribute("tours", tourService.getAllTours());
         return "user/main";
     }
+//    @GetMapping("/main")
+//    public String provinces(Model model){
+//        model.addAttribute("provinces", provinceService.getAllProvinces());
+//        return "user/main";
+//    }
 
     @GetMapping("/detail/{name}")
     public String detail(@PathVariable("name") String name, Model model) {
