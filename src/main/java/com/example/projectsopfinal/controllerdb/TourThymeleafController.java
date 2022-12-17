@@ -1,6 +1,7 @@
 package com.example.projectsopfinal.controllerdb;
 
 //import com.example.projectsopfinal.repository.ProvinceService;
+import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,8 +39,10 @@ public class TourThymeleafController {
 
     @GetMapping("/form/{name}")
     public String formtour(@PathVariable("name") String name, Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
         model.addAttribute("tours", tourService.detailTourByName(name));
-        return "user/formtest";
+        return "user/Form";
     }
 
     @GetMapping("/maintour")
