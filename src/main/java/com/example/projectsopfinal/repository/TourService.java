@@ -52,12 +52,17 @@ public class TourService {
         }
         return tour;
     }
-    public void chageName(String id ,String name, String province)
+    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail)
     {
         Tour t = new Tour();
         t = tourRepository.findById(id).get();
         t.setName(name);
         t.setProvince(province);
+        t.setPrice(price);
+        t.setSchedule(schedule);
+        t.setImg(img);
+        t.setDetail_img(detail_img);
+        t.setDetail(detail);
         tourRepository.save(t);
     }
 }

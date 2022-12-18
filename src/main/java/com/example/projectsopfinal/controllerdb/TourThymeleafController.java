@@ -110,9 +110,15 @@ public class TourThymeleafController {
     }
     @PostMapping("/UpdateForm")
     public String ChangeTour(@RequestParam("id") String id,
-                             @RequestParam("name") String name, @RequestParam("province") String province )
+                             @RequestParam("name") String name,
+                             @RequestParam("province") String province,
+                             @RequestParam("price") Double price,
+                             @RequestParam("schedule") String schedule,
+                             @RequestParam("img") String img,
+                             @RequestParam("detail_img") String detail_img,
+                             @RequestParam("detail") String detail )
     {
-        tourService.chageName(id, name, province);
+        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail);
         return "redirect:/maintour";
     }
 }

@@ -20,6 +20,18 @@
                 <input type="text" name="name" class="form-control" th:value="*{tour.name}"> <br>
                 <label>จังหวัด:</label>
                 <input type="text" name="province" class="form-control" th:value="*{tour.province}">
+                <label>ราคา:</label>
+                <input type="text" name="price" class="form-control" th:value="*{tour.price}">
+                <label>รายละเอียด:</label>
+                <input type="text" name="detail" class="form-control" th:value="*{tour.detail}">
+                <label>ตารางการเดินทาง:</label>
+                <input type="text" name="schedule" class="form-control" th:value="*{tour.schedule}">
+                <!--                <label>วันที่เดินทาง:</label>-->
+                <!--                <input type="text" name="date" class="form-control" th:value="*{tour.date}">-->
+                <label>ภาพปก:</label>
+                <input type="text" name="img" class="form-control" th:value="*{tour.img}">
+                <label>ภาพรายละเอียด:</label>
+                <input type="text" name="detail_img" class="form-control" th:value="*{tour.detail_img}">
                 <div class="text-center">
                     <a th:href="@{/maintour}">
                         <button type="button" class="btn btn-secondary">Cancel</button>
