@@ -46,7 +46,7 @@ public class UserService {
         User user = new User();
         user = userRepository.findById(id).get();
         user.setBank(bank);
-//        user.setSlip( new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+        user.setSlip( new Binary(BsonBinarySubType.BINARY, file.getBytes()));
         userRepository.save(user);
     }
 

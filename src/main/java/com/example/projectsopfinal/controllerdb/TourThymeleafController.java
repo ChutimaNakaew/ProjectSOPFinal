@@ -1,10 +1,12 @@
 package com.example.projectsopfinal.controllerdb;
 
 //import com.example.projectsopfinal.repository.ProvinceService;
+
 import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Null;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
 
@@ -27,19 +30,19 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/main")
-    public String tours(@RequestParam(value = "provinces", required=false) String provinces, Model model) {
+    public String tours(@RequestParam(value = "provinces", required = false) String provinces, Model model) {
 //        model.addAttribute("tours", tourService.getAllTours());
 //        System.out.println(provinces);
 //        return "user/main";
-        if (provinces == null || provinces == ""){
+        if (provinces == null || provinces == "") {
             model.addAttribute("tours", tourService.getAllTours());
-        }
-        else {
+        } else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces));
         }
         return "user/main";
     }
-//    @GetMapping("/main")
+
+    //    @GetMapping("/main")
 //    public String provinces(Model model){
 //        model.addAttribute("provinces", provinceService.getAllProvinces());
 //        return "user/main";
@@ -59,32 +62,29 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/maintour")
-    public String maintours(@RequestParam(value = "provinces", required=false) String provinces, Model model){
+    public String maintours(@RequestParam(value = "provinces", required = false) String provinces, Model model) {
 //        model.addAttribute("tours", tourService.getAllTours());
-        if (provinces == null || provinces == ""){
+        if (provinces == null || provinces == "") {
             model.addAttribute("tours", tourService.getAllTours());
-        }
-        else {
+        } else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces));
         }
         return "admin/maintour";
     }
 
-
-
-//    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
+    //    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
 //    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
 //        Tour tour = id.isPresent() ?
 //                tourService.findTourById(id.get()).get() : new Tour();
 //        model.addAttribute("tour", tour);
 //        return "admin/add-edit";
 //    }
-        @GetMapping("/edit-add")
-        public String addTour(Model model){
-            Tour tour = new Tour();
-            model.addAttribute("tour", tour);
-            return "admin/add-edit";
-        }
+    @GetMapping("/edit-add")
+    public String addTour(Model model) {
+        Tour tour = new Tour();
+        model.addAttribute("tour", tour);
+        return "admin/add-edit";
+    }
 
 
     @PostMapping("/save-reservation")
@@ -105,12 +105,13 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/TourUpdate/{id}")
-    public String TourUpdate(@PathVariable(value = "id") String id, Model model){
+    public String TourUpdate(@PathVariable(value = "id") String id, Model model) {
         Tour tour = tourService.getTourById(id);
 
         model.addAttribute("tour", tour);
         return "admin/edittour";
     }
+
     @PostMapping("/UpdateForm")
     public String ChangeTour(@RequestParam("id") String id,
                              @RequestParam("name") String name,
@@ -120,9 +121,11 @@ public class TourThymeleafController {
                              @RequestParam("img") String img,
                              @RequestParam("detail_img") String detail_img,
                              @RequestParam("detail") String detail,
-                             @RequestParam("date") Date date)
+                             @RequestParam("date_first") @DateTimeFormat(pattern = "dd-MM-yyyy") Date date_first,
+                             @RequestParam("date_second") @DateTimeFormat(pattern = "dd-MM-yyyy") Date date_second)
+
     {
-        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date);
+        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second);
         return "redirect:/maintour";
     }
 }
