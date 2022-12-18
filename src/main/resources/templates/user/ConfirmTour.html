@@ -2,49 +2,96 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://kit.fontawesome.com/33e0efac93.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <title>Comfirm Tour</title>
-    <style> @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap'); </style>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://kit.fontawesome.com/33e0efac93.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>Comfirm Tour</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+  </style>
 </head>
 
 <body>
-<div class="container-fluid mb-3 mt-2" style="font-family: 'Kanit', sans-serif;">
+  <div th:each="user : ${user}" class="container-fluid mb-3 mt-2" style="font-family: 'Kanit', sans-serif;">
     <h1>ยืนยันการจอง</h1>
     <hr>
+    <div class="card shadow-sm p-1 my-3 bg-body rounded">
+      <div class="card-body">
+        <div class="detail">
+          <h4 th:text="${user.tour_name}"></h4>
+          <div class="row my-3">
+            <div class="row">
+              <div class="col-1">
+                <p>จังหวัด</p>
+              </div>
+              <div class="col-2">
+                <p th:text="${user.province}">123456</p>
+              </div>
+              <div class="col-1">
+                <p>ราคา</p>
+              </div>
+              <div class="col-1">
+                <p th:text="${user.tour_price}"></p>
+              </div>
+              <div class="col-1">
+                <p>บาท/ท่าน</p>
+              </div>
+              <div class="col-1">
+                <p>วันที่เดินทาง</p>
+              </div>
+              <div class="col-5">
+                <p th:text="${#dates.format(user.date, 'dd-MM-yyyy')}"></p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <p>ผู้เดินทาง</p>
+                </div>
+                <div class="col-1">
+                    <p th:text="${user.total_tourist}">2</p>
+                </div>
+                <div class="col-1">
+                    <p>คน</p>
+                </div>   
+                <div class="col-1">
+                    <p>ราคารวม</p>
+                </div>
+                <div class="col-1">
+                    <p th:text="${user.total_tourist * user.tour_price}">2</p>
+                </div>
+                <div class="col-3">
+                    <p>บาท</p>
+                </div>      
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
     <div class="card shadow-sm p-1 bg-body rounded">
         <div class="card-body">
             <p>ข้อมูลผู้ติดต่อ</p>
             <div class="row">
                 <div class="col-4">
                     <p>ชื่อ-นามสกุล</p>
-                    <p>สมศรี &nbsp; มีบุญ</p>
+                    <div class="row">
+                        <div th:text="${user.firstname}" class="col-3">235621154545</div>
+                        <div th:text="${user.lastname}" class="col">12315641545454</div>
+                    </div>
                 </div>
                 <div class="col-4">
                     <p>อีเมล</p>
-                    <p>somsri@gmail.com</p>
+                    <p th:text="${user.email}">somsri@gmail.com</p>
                 </div>
                 <div class="col-4">
                     <p>โทรศัพท์</p>
-                    <p>0912345678</p>
+                    <p th:text="${user.phone}">0912345678</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="card mt-3 shadow-sm p-1 bg-body rounded">
-        <div class="card-body">
-            <p>ข้อมูลผู้เดินทาง</p>
-            <p style="color: #2b99ff;">ผู้เดินทาง 1</p>
-            <p>ชื่อ-นามสกุล</p>
-            <p>สมศรี &nbsp; มีบุญ</p>
-        </div>
-    </div> -->
+
     <div class="card mt-3 shadow-sm p-1 bg-body rounded">
         <div class="card-body">
             <p style="color: #2b99ff;">ข้อตกลงและเงื่อนไข</p>
@@ -78,10 +125,10 @@
     </div>
     <div class="row justify-content-center mt-4">
         <div class="col-1">
-            <a href="http://localhost:8080/form" type="button" class="btn btn-secondary">ย้อนกลับ</a>
+            <a th:href="@{/delete-usertour/{id}(id=${user.id})}" type="button" class="btn btn-danger mx-3">ยกเลิก</a>
         </div>
         <div class="col-1">
-            <a href="http://localhost:8080/payment" type="button" class="btn btn-primary">ชำระเงิน</a>
+            <a th:href="@{/payment/{id}(id=${user.id})}" type="button" class="btn btn-primary">ชำระเงิน</a>
         </div>
     </div>
 </div>

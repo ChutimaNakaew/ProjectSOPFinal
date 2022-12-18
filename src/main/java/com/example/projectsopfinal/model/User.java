@@ -27,6 +27,7 @@ public class User {
     private Integer total_tourist;
     private Integer total_price;
     private String tour_name;
+    private Double tour_price;
     private String province;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
