@@ -111,6 +111,14 @@
                             <td>วันเดินทาง</td>
                               <td><a href="/listname" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>
                           </tr>
+                          <tr th:each="tour : ${tours}">
+                              <th scope="row">2</th>
+                              <td> <div class="text-white bg-danger rounded">เต็ม</div> </td>
+                              <td><p th:text="${tour.name}"></p></td>
+<!--                              <td><p th:text="${tour.detail.date.first}"></p></td>-->
+                              <td>วันที่ ...</td>
+                              <td><a href="/listname" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>
+                          </tr>
 
                         </tbody>
                       </table>

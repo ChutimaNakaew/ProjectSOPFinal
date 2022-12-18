@@ -99,14 +99,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr th:each="tour : ${tours}" >
                                 <th scope="row">1</th>
                                 <td>
-                                    <div>ทัวร์ภูเก็ต</div>
+                                    <p th:text="${tour.tour_name}"></p>
                                 </td>
-                                <td>จ. 24 ธ.ค. 2565</td>
-                                <td>IZAAC</td>
-                                <td><a href="/adminCheckPayment" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
+                                <td><p th:text="${tour.date}"></p></td>
+                                <td><span th:text="${tour.firstname}"></span> <span th:text="${tour.lastname}"></span></td>
+                                <td><a href="/adminCheckPayment" th:href="@{/adminCheckPayment/{id}(id=${tour.id})}" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
                                 <td>
                                     <span><i class="bi bi-check-square-fill text-success"></i></span>
                                     <span><i class="bi bi-x-square-fill text-danger size"></i></span>
