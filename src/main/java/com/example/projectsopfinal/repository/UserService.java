@@ -1,5 +1,6 @@
 package com.example.projectsopfinal.repository;
 
+import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,13 @@ public class UserService {
 
     public void deleteUserById(String id){
         userRepository.deleteById(id);
+    }
+
+    public void chage(String bank, String id)
+    {
+        User u = new User();
+        u = userRepository.findById(id).get();
+        u.setBank(bank);
+        userRepository.save(u);
     }
 }
