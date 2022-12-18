@@ -78,18 +78,18 @@
                     <div class="row">
                         <div class="col-7" style="margin-top: 10%;">
                             <table class="table fs-6 table-borderless">
-                                <tbody>
+                                <tbody th:each="user : ${user}">
                                     <tr>
                                         <th scope="col">ชื่อทัวร์</th>
-                                        <th scope="col">ทัวร์ภูเก็ต</th>
+                                        <td th:text="${user.tour_name}"></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">จังหวัด</th>
-                                        <td>ภูเก็ต</td>
+                                        <td th:text="${user.province}"></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">ชื่อผู้จอง</th>
-                                        <td>izaac</td>
+                                        <td> <span th:text="${user.firstname}"></span> <span th:text="${user.lastname}"></span> </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">เดินทาง</th>
@@ -97,11 +97,11 @@
                                     </tr>
                                     <tr>
                                         <th scope="col">จำนวนผู้เดินทาง</th>
-                                        <td>2 ท่าน</td>
+                                        <td th:text="${user.total_tourist}"></td>
                                     </tr>
                                     <tr>
                                         <th scope="col">ราคารวม</th>
-                                        <td>2800 THB</td>
+                                        <td th:text="${user.tour_price}*${user.total_tourist}"></td>
                                     </tr>
                                 </tbody>
                             </table>

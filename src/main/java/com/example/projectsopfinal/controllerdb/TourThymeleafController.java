@@ -70,6 +70,8 @@ public class TourThymeleafController {
         return "admin/maintour";
     }
 
+
+
 //    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
 //    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
 //        Tour tour = id.isPresent() ?

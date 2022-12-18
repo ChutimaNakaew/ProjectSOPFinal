@@ -67,4 +67,12 @@ public class TourService {
         t.setDate(date);
         tourRepository.save(t);
     }
+
+    public void updateState(Boolean state, String id)
+    {
+        Tour t = new Tour();
+        t = tourRepository.findById(id).get();
+        t.setState(state);
+        tourRepository.save(t);
+    }
 }
