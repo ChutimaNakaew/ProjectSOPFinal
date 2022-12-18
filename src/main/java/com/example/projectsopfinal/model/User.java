@@ -35,4 +35,5 @@ public class User {
 
     private String status;
     private String slip;
+    private String bank;
 }
