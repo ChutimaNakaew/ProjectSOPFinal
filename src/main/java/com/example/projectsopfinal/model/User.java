@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -33,7 +34,7 @@ public class User {
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date date;
 
-    private String status;
-    private String slip;
+    private Boolean status;
+    private Binary slip;
     private String bank;
 }

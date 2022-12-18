@@ -49,32 +49,6 @@
                         <div class="col m-auto">
                             <img th:src="${tour.img}" width="500" height="200">
                         </div>
-                        <!--                        <div class="col m-5">-->
-                        <!--                            <div class="row">-->
-                        <!--                                <div class="col">-->
-                        <!--                                    <h5 th:text="${tour.name}"></h5>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="row">-->
-                        <!--                                <div class="col-3">-->
-                        <!--                                    <p>จังหวัด</p>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="col">-->
-                        <!--                                    <p th:text="${tour.province}"></p>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                            <div class="row">-->
-                        <!--                                <div class="col-3">-->
-                        <!--                                    <p>ราคา</p>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="col-2">-->
-                        <!--                                    <p th:text="${tour.price}"></p>-->
-                        <!--                                </div>-->
-                        <!--                                <div class="col-3">-->
-                        <!--                                    <p>บาท</p>-->
-                        <!--                                </div>-->
-                        <!--                            </div>-->
-                        <!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -82,7 +56,6 @@
                 <div class="col-12" th:each="tour : ${tours}">
                     <form class="m-4" th:action="@{/save-user}" th:object="${user}"
                           method="post">
-                        <!--                        <input type="hidden" th:value="${user.id}" name="id"/>-->
                         <div class="col-12">
                             <h5>แบบฟอร์มการจองสำหรับติดต่อ</h5>
                         </div>
@@ -180,7 +153,7 @@
                                                             class="fa-solid fa-person fa-xl"></i></span>
                                                 <input th:field="*{total_tourist}"
                                                        class="form-outline form-control w-50"
-                                                       type="number" min="1" placeholder="1">
+                                                       type="number" min="1" placeholder="จำนวนผู้เดินทาง">
                                                 <span class="input-group-text">คน</span>
                                             </div>
                                         </div>
@@ -199,7 +172,7 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="row border" style="padding-bottom: 125px; padding-top: 125px">
+            <div class="row border" style="padding-bottom: 167px; padding-top: 167px">
                 <div class="col-12 d-flex justify-content-center mt-3">
                     <h5>ขั้นตอนการจองทัวร์ </h5>
                 </div>
