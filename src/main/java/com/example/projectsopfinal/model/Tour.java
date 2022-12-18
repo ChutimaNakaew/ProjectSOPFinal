@@ -30,4 +30,11 @@ public class Tour {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Object date;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date_first;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date_second;
+
 }

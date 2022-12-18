@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "user")
+@Document(collection = "myUser")
 public class User {
     @Id
     private String id;
