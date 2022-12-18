@@ -40,8 +40,7 @@ public class UserController {
     }
 
     @PostMapping("/save-pay")
-    public String payTour(@RequestParam("bank") String bank, @RequestParam("id") String id, @RequestParam("image") MultipartFile image) throws IOException
-    {
+    public String payTour(@RequestParam("bank") String bank, @RequestParam("id") String id, @RequestParam("image") MultipartFile image) throws IOException {
         userService.change(bank, id, image);
         return "redirect:/main";
     }
@@ -52,6 +51,7 @@ public class UserController {
         model.addAttribute("user", userService.getAllUsers());
         return "redirect:/main";
     }
+
     @GetMapping("/payment/{id}")
     public String userPayment(@PathVariable("id") Optional<String> id, Model model) {
         model.addAttribute("payments", paymentService.getAllPay());
@@ -86,15 +86,13 @@ public class UserController {
 //    }
 
     @GetMapping("/adminViewlist")
-    public String ShowUser(Model model){
-//        User users = new User();
-//        model.addAttribute("users", new User());
+    public String ShowUser(Model model) {
         model.addAttribute("user", userService.getAllUsers());
         return "admin/AdminViewListName";
     }
 
     @GetMapping("/adminAllBooking")
-    public String Booking(Model model){
+    public String Booking(Model model) {
         model.addAttribute("user", userService.getAllUsers());
         return "admin/adminAllBooking";
     }
@@ -105,6 +103,8 @@ public class UserController {
 
         model.addAttribute("user", user);
         return "admin/user_detail";
+    }
+
     @GetMapping("/photos/{id}")
     public String getPhoto(Model model, @PathVariable String id) {
         User slip = userService.getId(id);
@@ -113,3 +113,4 @@ public class UserController {
         return "user/test";
     }
 }
+
