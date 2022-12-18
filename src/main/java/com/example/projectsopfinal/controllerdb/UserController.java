@@ -1,6 +1,6 @@
 package com.example.projectsopfinal.controllerdb;
 
-import com.example.projectsopfinal.configUpload.FileUploadUtil;
+//import com.example.projectsopfinal.configUpload.FileUploadUtil;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.PaymentService;
 import com.example.projectsopfinal.repository.TourService;
@@ -110,5 +110,19 @@ public class UserController {
 //        model.addAttribute("users", new User());
         model.addAttribute("user", userService.getAllUsers());
         return "admin/AdminViewListName";
+    }
+
+    @GetMapping("/adminAllBooking")
+    public String Booking(Model model){
+        model.addAttribute("user", userService.getAllUsers());
+        return "admin/adminAllBooking";
+    }
+
+    @GetMapping("/userdetail/{id}")
+    public String userDetail(@PathVariable("id") String id, Model model) {
+        User user = userService.getUserById(id);
+
+        model.addAttribute("user", user);
+        return "admin/user_detail";
     }
 }

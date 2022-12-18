@@ -39,4 +39,14 @@ public class UserService {
         u.setBank(bank);
         userRepository.save(u);
     }
+    public User getUserById(String id){
+        Optional<User> optional = userRepository.findById(id);
+        User user = null;
+        if(optional.isPresent()){
+            user = optional.get();
+        }else{
+            throw new RuntimeException("Tour not found for id ::"+ id);
+        }
+        return user;
+    }
 }

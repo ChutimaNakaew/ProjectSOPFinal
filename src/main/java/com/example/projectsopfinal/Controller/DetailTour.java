@@ -47,20 +47,20 @@ public class DetailTour {
         return "admin/notPass";
     }
 
-    @RequestMapping(value = "/userdetail", method = RequestMethod.GET)
-    public String userdetail() {
-        return "admin/user_detail";
-    }
+//    @RequestMapping(value = "/userdetail", method = RequestMethod.GET)
+//    public String userdetail() {
+//        return "admin/user_detail";
+//    }
 
     @RequestMapping(value = "/adminHome", method = RequestMethod.GET)
     public String adminHome() {
         return "admin/adminHome";
     }
 
-    @RequestMapping(value = "/adminAllBooking", method = RequestMethod.GET)
-    public String adminAllBooking() {
-        return "admin/adminAllBooking";
-    }
+//    @RequestMapping(value = "/adminAllBooking", method = RequestMethod.GET)
+//    public String adminAllBooking() {
+//        return "admin/adminAllBooking";
+//    }
 
     @RequestMapping(value = "/adminPayment", method = RequestMethod.GET)
     public String adminPayment() {

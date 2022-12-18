@@ -72,7 +72,7 @@
         </div>
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-9" th:each="user : ${user}">
       <div class="p-3 border bg-white h-100 fs-2 rounded-2 shadow p-3 mb-5 bg-body rounded">
         <p class=" text-start ms-2 mt-3"> <i class="bi bi-file-earmark"></i>รายละเอียดการจอง</p>
         <hr>
@@ -81,7 +81,7 @@
             <h5>ไอดี</h5>
           </div>
           <div class="col-8">
-            <h5>1</h5>
+            <h5 th:text="${user.id}"></h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -89,15 +89,15 @@
             <h5>ชื่อทัวร์</h5>
           </div>
           <div class="col-8">
-            <h5>ทัวร์ภูเก็ต</h5>
+            <h5 th:text="${user.tour_name}">ทัวร์ภูเก็ต</h5>
           </div>
         </div>
         <div class="row mt-2">
           <div class="col-3">
-            <h5>จังหวัด</h5>
+            <h5 >จังหวัด</h5>
           </div>
           <div class="col-8">
-            <h5>ภูเก็ต</h5>
+            <h5 th:text="${user.province}"></h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -105,7 +105,7 @@
             <h5>ผู้จอง</h5>
           </div>
           <div class="col-8">
-            <h5>izaac</h5>
+            <h5 th:text="${user.firstname}">izaac</h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -113,7 +113,7 @@
             <h5>วันที่เดินทาง</h5>
           </div>
           <div class="col-8">
-            <h5>ส. 24 ธ.ค. 2565</h5>
+            <h5 th:text="${user.date}">ส. 24 ธ.ค. 2565</h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -121,7 +121,7 @@
             <h5>จำนวนผู้เดินทาง</h5>
           </div>
           <div class="col-8">
-            <h5>2 ท่าน</h5>
+            <h5 th:text="${user.total_tourist}">2 ท่าน</h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -129,7 +129,7 @@
             <h5>ราคา</h5>
           </div>
           <div class="col-8">
-            <h5>2800 THB</h5>
+            <h5 th:text="${user.total_price}">2800 THB</h5>
           </div>
         </div>
 
