@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Null;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Optional;
 
@@ -27,7 +28,8 @@ public class AdminController {
         this.tourService = tourService;
         this.userService = userService;
     }
-        @GetMapping("/adminHome")
+
+    @GetMapping("/adminHome")
     public String adminHome(Model model) {
         model.addAttribute("tours", tourService.getAllTours());
         return "admin/adminHome";
@@ -42,10 +44,19 @@ public class AdminController {
     @GetMapping("/adminCheckPayment/{id}")
     public String adminCheckPayment(@PathVariable("id") String id, Model model) {
         User user = userService.getUserById(id);
-
+        model.addAttribute("image",
+                Base64.getEncoder().encodeToString(user.getSlip().getData()));
         model.addAttribute("user", user);
         return "admin/admincheckpayment";
     }
+
+    //    @GetMapping("/photos/{id}")
+//    public String getPhoto(Model model, @PathVariable String id) {
+//        User slip = userService.getId(id);
+//        model.addAttribute("image",
+//                Base64.getEncoder().encodeToString(slip.getSlip().getData()));
+//        return "user/test";
+//    }
 
     @PostMapping("/UpdateState")
     public String UpdateState(@RequestParam("id") String id,
@@ -56,8 +67,7 @@ public class AdminController {
                               @RequestParam("img") String img,
                               @RequestParam("detail_img") String detail_img,
                               @RequestParam("detail") String detail,
-                              @RequestParam("date") Date date)
-    {
+                              @RequestParam("date") Date date) {
         tourService.updateState(state, id);
         return "redirect:/adminPayment";
     }
