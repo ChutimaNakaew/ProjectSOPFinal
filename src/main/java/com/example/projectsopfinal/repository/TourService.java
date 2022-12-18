@@ -4,6 +4,7 @@ import com.example.projectsopfinal.model.Tour;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -52,7 +53,7 @@ public class TourService {
         }
         return tour;
     }
-    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail)
+    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, Date date)
     {
         Tour t = new Tour();
         t = tourRepository.findById(id).get();
@@ -63,6 +64,7 @@ public class TourService {
         t.setImg(img);
         t.setDetail_img(detail_img);
         t.setDetail(detail);
+        t.setDate(date);
         tourRepository.save(t);
     }
 }

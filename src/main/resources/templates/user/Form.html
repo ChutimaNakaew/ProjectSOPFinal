@@ -166,7 +166,7 @@
                                             <div class="form-group">
                                                 <select class="form-select" th:field="*{date}" id="date">
                                                     <option value="">เลือกวันเดินทาง</option>
-                                                    <option th:each="tour : ${tours.detail.date.values()}"
+                                                    <option th:each="tour : ${tours.date}"
                                                             th:value="${#dates.format(tour, 'dd-MM-yyyy')}"
                                                             th:text="${#dates.format(tour, 'dd-MM-yyyy')}">
                                                     </option>

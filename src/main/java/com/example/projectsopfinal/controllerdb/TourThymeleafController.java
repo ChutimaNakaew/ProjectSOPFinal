@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Null;
+import java.util.Date;
 import java.util.Optional;
 
 
@@ -116,9 +117,10 @@ public class TourThymeleafController {
                              @RequestParam("schedule") String schedule,
                              @RequestParam("img") String img,
                              @RequestParam("detail_img") String detail_img,
-                             @RequestParam("detail") String detail )
+                             @RequestParam("detail") String detail,
+                             @RequestParam("date") Date date)
     {
-        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail);
+        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date);
         return "redirect:/maintour";
     }
 }
