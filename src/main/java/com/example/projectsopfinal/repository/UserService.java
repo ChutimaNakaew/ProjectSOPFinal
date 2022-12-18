@@ -1,10 +1,13 @@
 package com.example.projectsopfinal.repository;
 
-import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
+import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Optional;
 
 @Service
@@ -17,6 +20,7 @@ public class UserService {
     }
 
     public User save(User user) {
+        user.setStatus(false);
         return userRepository.save(user);
     }
 
@@ -32,12 +36,17 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public void chage(String bank, String id)
+    public void change(String bank, String id, MultipartFile file) throws IOException
     {
-        User u = new User();
-        u = userRepository.findById(id).get();
-        u.setBank(bank);
-        userRepository.save(u);
+        User user = new User();
+        user = userRepository.findById(id).get();
+        user.setBank(bank);
+        user.setSlip( new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+        userRepository.save(user);
+    }
+
+    public User getId(String id) {
+        return userRepository.findById(id).get();
     }
     public User getUserById(String id){
         Optional<User> optional = userRepository.findById(id);
