@@ -82,12 +82,12 @@ public class UserController {
         return "admin/user_detail";
     }
 
-    @GetMapping("/photos/{id}")
-    public String getPhoto(Model model, @PathVariable String id) {
-        User slip = userService.getId(id);
-        model.addAttribute("image",
-                Base64.getEncoder().encodeToString(slip.getSlip().getData()));
-        return "user/test";
-    }
+//    @GetMapping("/photos/{id}")
+//    public String getPhoto(Model model, @PathVariable String id) {
+//        User slip = userService.getId(id);
+//        model.addAttribute("image",
+//                Base64.getEncoder().encodeToString(slip.getSlip().getData()));
+//        return "user/test";
+//    }
 }
 

@@ -35,6 +35,6 @@ public class User {
     private Date date;
 
     private Boolean status;
-    private Binary slip;
+    private String slip;
     private String bank;
 }

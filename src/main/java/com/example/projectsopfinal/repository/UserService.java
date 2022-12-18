@@ -1,9 +1,13 @@
 package com.example.projectsopfinal.repository;
 
+import ch.qos.logback.core.pattern.Converter;
 import com.example.projectsopfinal.model.User;
 import org.bson.BsonBinarySubType;
+import org.bson.BsonUndefined;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.ConverterFactory;
+import org.springframework.data.convert.ReadingConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +28,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
+
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -41,7 +46,7 @@ public class UserService {
         User user = new User();
         user = userRepository.findById(id).get();
         user.setBank(bank);
-        user.setSlip( new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+//        user.setSlip( new Binary(BsonBinarySubType.BINARY, file.getBytes()));
         userRepository.save(user);
     }
 
