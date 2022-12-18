@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "tour")
+@Document(collection = "myTour")
 public class Tour {
     @Id
     private String _id;
@@ -27,7 +27,7 @@ public class Tour {
     private Object detail;
     private Integer people;
     private String schedule;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date date;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Object date;
 }

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 @EnableAutoConfiguration
 @SpringBootApplication
 @Slf4j
+
 public class ProjectSopFinalApplication {
 
     public static void main(String[] args) {

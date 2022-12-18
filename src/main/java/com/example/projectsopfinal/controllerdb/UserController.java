@@ -61,29 +61,6 @@ public class UserController {
         model.addAttribute("user", user);
         return "user/Payment";
     }
-//    @GetMapping(value = {"/edit-add-reservation/{id}", "/edit-add-reservation"})
-//    public String editReservation(@PathVariable("id") Optional<String> id, Model model) {
-//        Reservation reservation = id.isPresent() ?
-//                reservationService.findReservationById(id.get()).get() : new Reservation();
-//        model.addAttribute("reservation", reservation);
-//        return "add-edit";
-//    }
-
-//    @GetMapping("/payment")
-//    public String payments(Model model){
-//        model.addAttribute("payments", paymentService.getAllPay());
-//        return "user/Payment";
-//    }
-//    @GetMapping("/tourUser")
-//    public String userTour(Model model) {
-//        model.addAttribute("user", userService.getAllUsers());
-//        return "user/UserBooking";
-//    }
-//    @GetMapping("/confirm/")
-//    public String formTour(Model model) {
-//        model.addAttribute("user", userService.findUserById(id));
-//        return "user/DetailTour";
-//    }
 
     @GetMapping("/adminViewlist")
     public String ShowUser(Model model) {
