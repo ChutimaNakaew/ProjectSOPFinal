@@ -69,13 +69,20 @@ public class TourThymeleafController {
         return "admin/maintour";
     }
 
-    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
-    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
-        Tour tour = id.isPresent() ?
-                tourService.findTourById(id.get()).get() : new Tour();
-        model.addAttribute("tour", tour);
-        return "admin/add-edit";
-    }
+//    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
+//    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
+//        Tour tour = id.isPresent() ?
+//                tourService.findTourById(id.get()).get() : new Tour();
+//        model.addAttribute("tour", tour);
+//        return "admin/add-edit";
+//    }
+        @GetMapping("/edit-add")
+        public String addTour(Model model){
+            Tour tour = new Tour();
+            model.addAttribute("tour", tour);
+            return "admin/add-edit";
+        }
+
 
     @PostMapping("/save-reservation")
     public String editTour(@ModelAttribute("tour") @Valid Tour tour,
@@ -91,6 +98,21 @@ public class TourThymeleafController {
     public String removeTour(@PathVariable("id") String id, Model model) {
         tourService.deleteTourById(id);
         model.addAttribute("tour", tourService.getAllTours());
+        return "redirect:/maintour";
+    }
+
+    @GetMapping("/TourUpdate/{id}")
+    public String TourUpdate(@PathVariable(value = "id") String id, Model model){
+        Tour tour = tourService.getTourById(id);
+
+        model.addAttribute("tour", tour);
+        return "admin/edittour";
+    }
+    @PostMapping("/UpdateForm")
+    public String ChangeTour(@RequestParam("id") String id,
+                             @RequestParam("name") String name, @RequestParam("province") String province )
+    {
+        tourService.chageName(id, name, province);
         return "redirect:/maintour";
     }
 }

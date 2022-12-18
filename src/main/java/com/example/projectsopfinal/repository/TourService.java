@@ -41,4 +41,23 @@ public class TourService {
     public Iterable<Tour> getToursByProvince(String province){
         return tourRepository.findByProvince(province);
     }
+
+    public Tour getTourById(String id){
+        Optional<Tour> optional = tourRepository.findById(id);
+        Tour tour = null;
+        if(optional.isPresent()){
+            tour = optional.get();
+        }else{
+            throw new RuntimeException("Tour not found for id ::"+ id);
+        }
+        return tour;
+    }
+    public void chageName(String id ,String name, String province)
+    {
+        Tour t = new Tour();
+        t = tourRepository.findById(id).get();
+        t.setName(name);
+        t.setProvince(province);
+        tourRepository.save(t);
+    }
 }

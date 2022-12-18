@@ -163,7 +163,7 @@
                     </div>
                     <div style="display: flex; justify-content: space-between;">
                         <div class="mt-2">
-                            <a href="/edittour"><i class="fa fa-pencil text-dark"></i></a>
+                            <a th:href="@{/TourUpdate/{id}(id=${tour._id})}"><i class="fa fa-pencil text-dark"></i></a>
                             <a th:href="@{/delete-reservation/{id}(id=${tour._id})}"><i class="fa fa-trash mx-2 text-dark"></i></a>
                         </div>
                     </div>
