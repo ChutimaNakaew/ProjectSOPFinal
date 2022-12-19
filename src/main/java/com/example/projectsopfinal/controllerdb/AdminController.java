@@ -65,6 +65,34 @@ public class AdminController {
         return "redirect:/adminPayment";
     }
 
+    @PostMapping("/changeStateFalse/{id}")
+    public String changeStateFalse(@PathVariable("id") String id)
+    {
+        userService.changeStateFalse(id);
+        return "redirect:/adminPaymentApprove";
+    }
+
+    @PostMapping("/changeStateTrue/{id}")
+    public String changeStateTrue(@PathVariable("id") String id)
+    {
+        userService.updateStateTrue(id);
+        return "redirect:/notPass";
+    }
+
+
+
+    @GetMapping("/adminPaymentApprove")
+    public String adminPaymentApprove(Model model) {
+        model.addAttribute("tours", userService.getAllUsers());
+        return "admin/adminPaymentApprove";
+    }
+
+    @GetMapping("/notPass")
+    public String notPass(Model model) {
+        model.addAttribute("tours", userService.getAllUsers());
+        return "admin/notPass";
+    }
+
 //        @GetMapping("/form/{name}")
 //        public String formtour(@PathVariable("name") String name, Model model) {
 //            User user = new User();

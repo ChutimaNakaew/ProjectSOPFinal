@@ -42,10 +42,10 @@ public class DetailTour {
 //        return "user/main";
 //    }
 
-    @RequestMapping(value = "/notPass", method = RequestMethod.GET)
-    public String notPass() {
-        return "admin/notPass";
-    }
+//    @RequestMapping(value = "/notPass", method = RequestMethod.GET)
+//    public String notPass() {
+//        return "admin/notPass";
+//    }
 
 //    @RequestMapping(value = "/userdetail", method = RequestMethod.GET)
 //    public String userdetail() {
@@ -67,10 +67,10 @@ public class DetailTour {
 //        return "admin/adminPayment";
 //    }
 
-    @RequestMapping(value = "/adminPaymentApprove", method = RequestMethod.GET)
-    public String adminPaymentApprove() {
-        return "admin/adminPaymentApprove";
-    }
+//    @RequestMapping(value = "/adminPaymentApprove", method = RequestMethod.GET)
+//    public String adminPaymentApprove() {
+//        return "admin/adminPaymentApprove";
+//    }
 
     @RequestMapping(value = "/adminCheckPayment", method = RequestMethod.GET)
     public String adminCheckPayment() {

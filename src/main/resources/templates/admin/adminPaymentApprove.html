@@ -90,35 +90,35 @@
                     <table class="table fs-6 table-hover text-center">
                         <thead>
                             <tr>
-                                <th scope="col" style="width: 80px">ไอดี</th>
                                 <th scope="col" style="width: 200px">ชื่อทัวร์</th>
                                 <th scope="col" style="width: 120px">วันเดินทาง</th>
                                 <th scope="col" style="width: 120px">ชื่อผู้จอง</th>
                                 <th scope="col" style="width: 100px">หลักฐาน</th>
-                                <th scope="col" style="width: 120px">รายละเอียดการจอง</th>
+                                <th scope="col" style="width: 120px">เปลี่ยนสถานะ</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
+                        <span th:each="tour : ${tours}">
+                            <tr th:if="${tour.status == 'true'}">
                                 <td>
-                                    <div>ทัวร์ภูเก็ต</div>
+                                    <p th:text="${tour.tour_name}"></p>
                                 </td>
-                                <td>จ. 24 ธ.ค. 2565</td>
-                                <td>IZAAC</td>
-                                <td><a href="/adminCheckPayment" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
-                                <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
+                                <td><p th:text="${tour.date}"></p></td>
+                                <td><span th:text="${tour.firstname}"></span> <span th:text="${tour.lastname}"></span>
+                                </td>
+                                <td><a href="/adminCheckPayment" th:href="@{/adminCheckPayment/{id}(id=${tour.id})}"
+                                       class="btn btn-warning" role="button">ดูหลักฐาน</a>
+                                </td>
                                 <td>
-                                    <div>ทัวร์ภูเก็ต</div>
+                                    <form th:action="@{/changeStateFalse/{id}(id=${tour.id})}" method="post" class="form-inline">
+<!--                                                    <a onclick="document.getElementById('form2').submit();"><span><i-->
+                                        <!--                                                            class="bi bi-x-square-fill text-danger fs-3"></i></span></a>-->
+                                                    <button type="submit" class="btn btn-danger">ไม่อนุมัติ</button>
+                                                </form>
+
                                 </td>
-                                <td>อ. 25 ธ.ค. 2565</td>
-                                <td>IZAAC2</td>
-                                <td><a href="/adminCheckPayment" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
-                                <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>
                             </tr>
+                        </span>
                         </tbody>
                     </table>
                 </div>

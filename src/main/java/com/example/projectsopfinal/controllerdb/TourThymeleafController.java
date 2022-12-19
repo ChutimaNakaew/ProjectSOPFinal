@@ -4,7 +4,6 @@ package com.example.projectsopfinal.controllerdb;
 import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
-import com.mongodb.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Null;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -33,7 +31,7 @@ public class TourThymeleafController {
 //        model.addAttribute("tours", tourService.getAllTours());
 //        System.out.println(provinces);
 //        return "user/main";
-        if (provinces == null || provinces == "") {
+        if (provinces == null || provinces.equals("")) {
             model.addAttribute("tours", tourService.getAllTours(filters));
         } else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces, filters)); //, filters
@@ -62,11 +60,10 @@ public class TourThymeleafController {
     @GetMapping("/maintour")
     public String maintours(@RequestParam(value = "provinces", required=false) String provinces, @RequestParam(value = "filters", required=false) String filters, Model model){
 //        model.addAttribute("tours", tourService.getAllTours());
-        if (provinces == null || provinces == ""){
-            model.addAttribute("tours", tourService.getAllTours());
-        }
-        else {
-            model.addAttribute("tours", tourService.getToursByProvince(provinces, filters));
+        if (provinces == null || provinces.equals("")) {
+            model.addAttribute("tours", tourService.getAllTours(filters));
+        } else {
+            model.addAttribute("tours", tourService.getToursByProvince(provinces, filters)); //, filters
         }
         return "admin/maintour";
     }
@@ -118,7 +115,7 @@ public class TourThymeleafController {
                              @RequestParam("max_tourist") Integer max_tourist
     )
     {
-        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
+        tourService.changeName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
         return "redirect:/maintour";
     }
 }

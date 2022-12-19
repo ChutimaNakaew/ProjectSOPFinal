@@ -83,41 +83,37 @@
         </div>
 
         <table class="table fs-6 table-hover text-center">
-          <thead>
-          <tr>
-            <th scope="col">ไอดี</th>
-            <th scope="col ">ชื่อทัวร์</th>
-            <th scope="col">วันที่เดินทาง</th>
-            <th scope="col">ชื่อผู้จอง</th>
-            <th scope="col">หลักฐานการชำระเงิน</th>
-            <th scope="col">รายละเอียดการจอง</th>
-          </tr>
-          </thead>
+            <thead>
+            <tr>
+                <th scope="col" style="width: 200px">ชื่อทัวร์</th>
+                <th scope="col" style="width: 120px">วันเดินทาง</th>
+                <th scope="col" style="width: 120px">ชื่อผู้จอง</th>
+                <th scope="col" style="width: 100px">หลักฐาน</th>
+                <th scope="col" style="width: 120px">เปลี่ยนสถานะ</th>
+            </tr>
+            </thead>
           <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td >ทัวร์ภูเก็ต</td>
-            <td>ส. 24 ธ.ค. 2565</td>
-            <td>izaac</td>
-            <td><a href="/adminCheckPayment" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
-            <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>ทัวร์ภูเก็ต</td>
-            <td>จ. 30 ธ.ค. 2565</td>
-            <td>mod</td>
-            <td><a href="/adminCheckPayment" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
-            <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>ทัวร์สุพรรณบุรี วัดพระนอน</td>
-            <td>ศ. 26 ธ.ค. 2565</td>
-            <td>fah</td>
-            <td><a href="/adminCheckPayment" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
-            <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>
-          </tr>
+          <span th:each="tour : ${tours}">
+          <tr th:if="${tour.status == 'false'}">
+                                <td>
+                                    <p th:text="${tour.tour_name}"></p>
+                                </td>
+                                <td><p th:text="${tour.date}"></p></td>
+                                <td><span th:text="${tour.firstname}"></span> <span th:text="${tour.lastname}"></span>
+                                </td>
+                                <td><a href="/adminCheckPayment" th:href="@{/adminCheckPayment/{id}(id=${tour.id})}"
+                                       class="btn btn-warning" role="button">ดูหลักฐาน</a>
+                                </td>
+                                <td>
+                                    <form th:action="@{/changeStateTrue/{id}(id=${tour.id})}" method="post" class="form-inline">
+<!--                                                    <a onclick="document.getElementById('form2').submit();"><span><i-->
+                                      <!--                                                            class="bi bi-x-square-fill text-danger fs-3"></i></span></a>-->
+                                                    <button type="submit" class="btn btn-success">อนุมัติ</button>
+                                                </form>
+
+                                </td>
+                            </tr>
+          </span>
           </tbody>
         </table>
       </div>
