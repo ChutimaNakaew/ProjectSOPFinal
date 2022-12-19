@@ -79,4 +79,12 @@ public class UserService {
         return userRepository.findByNameTour(name);
     }
 
+    public void updateStateFalse(String id)
+    {
+        User t = new User();
+        t = userRepository.findById(id).get();
+        String state = "False";
+        t.setStatus(state);
+        userRepository.save(t);
+    }
 }
