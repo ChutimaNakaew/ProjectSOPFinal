@@ -51,13 +51,19 @@ public class AdminController {
     }
 
     @PostMapping("/updateStateTrue/{id}")
-    public String UpdateState(@PathVariable("id") String id)
+    public String updateStateTrue(@PathVariable("id") String id)
     {
         userService.updateStateTrue(id);
         return "redirect:/adminPayment";
     }
 
 
+    @PostMapping("/updateStateFalse/{id}")
+    public String updateStateFalse(@PathVariable("id") String id)
+    {
+        userService.updateStateFalse(id);
+        return "redirect:/adminPayment";
+    }
 
 //        @GetMapping("/form/{name}")
 //        public String formtour(@PathVariable("name") String name, Model model) {

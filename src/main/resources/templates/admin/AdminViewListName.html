@@ -51,9 +51,8 @@
                     <div>
                         <hr>
                         <p class="fw-bold text-primary text-start">ทัวร์</p>
-                        <a href="/maintour" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
-                        <a th:href="@{/edit-add}" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
-
+                        <a href="/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
+                        <a href="/maintour" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
                         <hr>
                         <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
                         <a href="/adminPayment" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-cash"></i> รายการชำระเงิน</p></a>
@@ -90,6 +89,9 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <tr  th:if="${user == null}" class="text-center">
+                        <td colspan="4"> No User Booking</td>
+                    </tr>
                     <tr th:each="user: ${user}">
                         <!--                        <th scope="row">1</th>-->
                         <td th:text="${user.id}"></td>
