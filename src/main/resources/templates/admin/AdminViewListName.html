@@ -98,18 +98,12 @@
                         <td colspan="4"> No User Booking</td>
                     </tr>
                     <tr th:each="user: ${user}">
-                        <!--                        <th scope="row">1</th>-->
                         <td th:text="${user.id}"></td>
-                        <td th:text="${user.firstname}"></td>
+                        <td th:text="${user.firstname + '&emsp;' + user.lastname}">
+                        </td>
                         <td th:text="${user.phone}"></td>
                         <td th:text="${user.email}"></td>
                     </tr>
-                    <!--                    <tr>-->
-                    <!--                        <th scope="row">2</th>-->
-                    <!--                        <td>สมชาย &nbsp; มีตังค์</td>-->
-                    <!--                        <td>0987654321</td>-->
-                    <!--                        <td>somchai@gmail.com</td>-->
-                    <!--                    </tr>-->
                     </tbody>
                 </table>
             </div>
