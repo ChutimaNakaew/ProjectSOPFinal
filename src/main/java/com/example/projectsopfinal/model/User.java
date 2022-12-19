@@ -31,16 +31,11 @@ public class User {
     private String tour_name;
     private Double tour_price;
     private String province;
+    private String status;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
-
-    private String status;
-
     @NotNull
     private Binary slip;
-
     private String bank;
-
-
 }
