@@ -69,11 +69,6 @@
                                <p class="fw-bold text-primary text-start">การจอง</p>
                                <a href="/adminAllBooking" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-receipt-cutoff"></i> รายการจองทั้งหมด</p></a>
                     </div>
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -96,28 +91,28 @@
                             <th scope="col" style="width: 120px">รายชื่อผู้จอง</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody th:each="tour : ${tours}">
+<!--                          <tr>-->
+<!--                            <th scope="row">1</th>-->
+<!--                            <td> <div class="text-white bg-success rounded"> 10/20</div> </td>-->
+<!--                            <td>ทัวร์ภูเก็ต</td>-->
+<!--                            <td>วันเดินทาง</td>-->
+<!--                              <td><a th:href="@{/adminViewlist/{nameTour}(nameTour=${tour.name})}" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>-->
+<!--                          </tr>-->
+<!--                          <tr>-->
+<!--                            <th scope="row">2</th>-->
+<!--                            <td> <div class="text-white bg-danger rounded">เต็ม</div> </td>-->
+<!--                            <td>ทัวร์ภูเก็ต</td>-->
+<!--                            <td>วันเดินทาง</td>-->
+<!--                              <td><a href="/listname" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>-->
+<!--                          </tr>-->
                           <tr>
-                            <th scope="row">1</th>
-                            <td> <div class="text-white bg-success rounded"> 10/20</div> </td>
-                            <td>ทัวร์ภูเก็ต</td>
-                            <td>วันเดินทาง</td>
-                              <td><a href="/listname" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td> <div class="text-white bg-danger rounded">เต็ม</div> </td>
-                            <td>ทัวร์ภูเก็ต</td>
-                            <td>วันเดินทาง</td>
-                              <td><a href="/listname" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>
-                          </tr>
-                          <tr th:each="tour : ${tours}">
                               <th scope="row">2</th>
                               <td> <div class="text-white bg-danger rounded">เต็ม</div> </td>
                               <td><p th:text="${tour.name}"></p></td>
 <!--                              <td><p th:text="${tour.detail.date.first}"></p></td>-->
                               <td>วันที่ ...</td>
-                              <td><a href="/listname" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>
+                              <td><a th:href="@{/adminViewlist/{nameTour}(nameTour=${tour.name})}" class="btn btn-warning" role="button">ดูรายชื่อ</a></td>
                           </tr>
 
                         </tbody>
