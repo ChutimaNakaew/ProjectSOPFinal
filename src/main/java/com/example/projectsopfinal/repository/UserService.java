@@ -89,7 +89,25 @@ public class UserService {
     {
         User t = new User();
         t = userRepository.findById(id).get();
-        String state = "False";
+        String state = "false";
+        t.setStatus(state);
+        userRepository.save(t);
+    }
+
+    public void changeStateFalse(String id)
+    {
+        User t = new User();
+        t = userRepository.findById(id).get();
+        String state = "false";
+        t.setStatus(state);
+        userRepository.save(t);
+    }
+
+    public void changeStateTrue(String id)
+    {
+        User t = new User();
+        t = userRepository.findById(id).get();
+        String state = "true";
         t.setStatus(state);
         userRepository.save(t);
     }
