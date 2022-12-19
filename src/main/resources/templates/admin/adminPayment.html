@@ -58,7 +58,7 @@
                             <hr>
                             <p class="fw-bold text-primary text-start">ทัวร์</p>
                             <a href="/maintour" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
-                            <a href="/addtour" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
+                            <a th:href="@{/edit-add}" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
 
                             <hr>
                             <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
@@ -104,7 +104,7 @@
                                 <td>
                                     <p th:text="${tour.tour_name}"></p>
                                 </td>
-                                <td><p th:text="${tour.date}"></p></td>
+                                <td><p th:text="${#dates.format(tour.date, 'dd-MM-yyyy')}" ></p></td>
                                 <td><span th:text="${tour.firstname}"></span> <span th:text="${tour.lastname}"></span></td>
                                 <td><a href="/adminCheckPayment" th:href="@{/adminCheckPayment/{id}(id=${tour.id})}" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
                                 <td>

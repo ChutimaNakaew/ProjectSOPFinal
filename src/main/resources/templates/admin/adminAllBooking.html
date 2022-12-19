@@ -59,7 +59,7 @@
                         <hr>
                         <p class="fw-bold text-primary text-start">ทัวร์</p>
                         <a href="/maintour" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
-                        <a href="/addtour" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
+                        <a th:href="@{/edit-add}" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
 
                         <hr>
                         <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
@@ -107,7 +107,7 @@
                         <td th:text="${user.tour_name}">
 
                         </td>
-                        <td th:text="${user.date}">จ. 24 ธ.ค. 2565</td>
+                        <td th:text="${#dates.format(user.date, 'dd-MM-yyyy')}"></td>
                         <td><a th:href="@{/userdetail/{id}(id=${user.id})}"  class="btn btn-info" role="button">ดูรายละเอียด</a></td>
                     </tr>
                     <!--                            <tr>-->

@@ -78,7 +78,7 @@
         <hr>
         <div class="row">
           <div class="col-3">
-            <h5>ไอดี</h5>
+            <h5>รหัสลูกค้า</h5>
           </div>
           <div class="col-8">
             <h5 th:text="${user.id}"></h5>
@@ -89,7 +89,7 @@
             <h5>ชื่อทัวร์</h5>
           </div>
           <div class="col-8">
-            <h5 th:text="${user.tour_name}">ทัวร์ภูเก็ต</h5>
+            <h5 th:text="${user.tour_name}"></h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -105,7 +105,7 @@
             <h5>ผู้จอง</h5>
           </div>
           <div class="col-8">
-            <h5 th:text="${user.firstname}">izaac</h5>
+            <h5 th:text="${user.firstname}"></h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -113,7 +113,7 @@
             <h5>วันที่เดินทาง</h5>
           </div>
           <div class="col-8">
-            <h5 th:text="${user.date}">ส. 24 ธ.ค. 2565</h5>
+            <h5 th:text="${#dates.format(user.date, 'dd-MM-yyyy')}"></h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -121,7 +121,7 @@
             <h5>จำนวนผู้เดินทาง</h5>
           </div>
           <div class="col-8">
-            <h5 th:text="${user.total_tourist}">2 ท่าน</h5>
+            <h5 th:text="${user.total_tourist}"></h5>
           </div>
         </div>
         <div class="row mt-2">
@@ -129,7 +129,7 @@
             <h5>ราคา</h5>
           </div>
           <div class="col-8">
-            <h5 th:text="${user.total_price}">2800 THB</h5>
+            <h5 th:text="${user.tour_price}"></h5>
           </div>
         </div>
 
