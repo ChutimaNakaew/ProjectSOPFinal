@@ -3,6 +3,7 @@ package com.example.projectsopfinal.controllerdb;
 import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.PaymentService;
+import com.example.projectsopfinal.repository.TourService;
 import com.example.projectsopfinal.repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +22,13 @@ public class UserController {
 
     private UserService userService;
     private PaymentService paymentService;
+    private TourService tourService;
 
     @Autowired
-    public UserController(UserService userService, PaymentService paymentService) {
+    public UserController(UserService userService, PaymentService paymentService, TourService tourService) {
         this.userService = userService;
         this.paymentService = paymentService;
+        this.tourService = tourService;
     }
 
     @PostMapping("/save-user")
@@ -62,9 +65,9 @@ public class UserController {
         return "user/Payment";
     }
 
-    @GetMapping("/adminViewlist")
-    public String ShowUser(Model model) {
-        model.addAttribute("user", userService.getAllUsers());
+    @GetMapping("/adminViewlist/{nameTour}")
+    public String ShowUser(@PathVariable("nameTour") String nameTour, Model model) {
+        model.addAttribute("user", userService.findByNameTour(nameTour));
         return "admin/AdminViewListName";
     }
 

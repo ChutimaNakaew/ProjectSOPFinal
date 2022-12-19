@@ -57,6 +57,8 @@ public class AdminController {
         return "redirect:/adminPayment";
     }
 
+
+
 //        @GetMapping("/form/{name}")
 //        public String formtour(@PathVariable("name") String name, Model model) {
 //            User user = new User();

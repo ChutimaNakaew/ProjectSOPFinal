@@ -74,4 +74,9 @@ public class UserService {
         t.setStatus(state);
         userRepository.save(t);
     }
+
+    public User findByNameTour(String name){
+        return userRepository.findByNameTour(name);
+    }
+
 }

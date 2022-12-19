@@ -28,7 +28,7 @@ public class TourService {
         tourRepository.deleteAll();
     }
 
-    public Tour detailTourByName(String name){
+    public Tour TourByName(String name){
         return tourRepository.findByName(name);
     }
 

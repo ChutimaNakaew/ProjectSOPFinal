@@ -50,7 +50,7 @@ public class TourThymeleafController {
 //    }
     @GetMapping("/detail/{name}")
     public String detail(@PathVariable("name") String name, Model model) {
-        model.addAttribute("tours", tourService.detailTourByName(name));
+        model.addAttribute("tours", tourService.TourByName(name));
         return "user/DetailTour";
     }
 
@@ -58,7 +58,7 @@ public class TourThymeleafController {
     public String formtour(@PathVariable("name") String name, Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        model.addAttribute("tours", tourService.detailTourByName(name));
+        model.addAttribute("tours", tourService.TourByName(name));
         return "user/Form";
     }
 
