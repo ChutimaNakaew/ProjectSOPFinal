@@ -9,6 +9,7 @@ import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.ConverterFactory;
 import org.springframework.data.convert.ReadingConverter;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -75,8 +76,13 @@ public class UserService {
         userRepository.save(t);
     }
 
-    public User findByNameTour(String name){
+    public Iterable<User> findByNameTour(String name){
         return userRepository.findByNameTour(name);
+    }
+
+
+    public Integer getCount(String tour_name) {
+        return userRepository.countUser(tour_name);
     }
 
     public void updateStateFalse(String id)

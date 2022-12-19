@@ -33,6 +33,9 @@
         .size {
             font-size: 24px
         }
+        a:hover {
+            cursor:pointer;
+        }
     </style>
 </head>
 
@@ -107,7 +110,7 @@
                                 <th scope="col" style="width: 120px">วันเดินทาง</th>
                                 <th scope="col" style="width: 120px">ชื่อผู้จอง</th>
                                 <th scope="col" style="width: 120px">หลักฐาน</th>
-                                <th scope="col" style="width: 120px">การอนุมัติ</th>
+                                <th scope="col" style="width: 140px">การอนุมัติ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -128,16 +131,18 @@
                                 <td>
 
                                     <div class="row text-center">
-                                            <div class="col">
-                                                <form id="form1" th:action="@{/updateStateTrue/{id}(id=${tour.id})}" method="post">
-                                                    <a onclick="document.getElementById('form1').submit();"><span><i
-                                                            class="bi bi-check-square-fill text-success fs-3"></i></span></a>
+                                            <div class="col-lg-12 col-xl-4">
+                                                <form th:action="@{/updateStateTrue/{id}(id=${tour.id})}" method="post" class="form-inline">
+<!--                                                    <a onclick="document.getElementById('form1').submit();"><span><i-->
+<!--                                                            class="bi bi-check-square-fill text-success fs-3"></i></span></a>-->
+                                                    <button type="submit" class="btn btn-success">ผ่าน</button>
                                                 </form>
                                             </div>
-                                            <div class="col mx-auto my-auto">
-                                                <form id="form2" th:action="@{/updateStateFalse/{id}(id=${tour.id})}" method="post">
-                                                    <a onclick="document.getElementById('form2').submit();"><span><i
-                                                            class="bi bi-x-square-fill text-danger fs-3"></i></span></a>
+                                            <div class="col-lg-12 col-xl-8 mx-auto my-auto">
+                                                <form th:action="@{/updateStateFalse/{id}(id=${tour.id})}" method="post" class="form-inline">
+<!--                                                    <a onclick="document.getElementById('form2').submit();"><span><i-->
+<!--                                                            class="bi bi-x-square-fill text-danger fs-3"></i></span></a>-->
+                                                    <button type="submit" class="btn btn-danger">ไม่ผ่าน</button>
                                                 </form>
                                             </div>
                                     </div>

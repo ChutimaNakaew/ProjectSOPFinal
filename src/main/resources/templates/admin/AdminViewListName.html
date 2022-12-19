@@ -71,6 +71,11 @@
         <div class="col-9">
             <div class="p-3 border bg-white h-100 fs-2 rounded-2 shadow p-3 mb-5 bg-body rounded">
                 <p class=" text-start ms-2 mt-3"><i class="fa-solid fa-address-card"></i> รายชื่อทั้งหมด</p>
+                <div>
+                <span>  จำนวนผู้ร่วมเดินทางในทัวร์นี้ </span>
+                <span th:text="${count}"></span>
+                    <span>คน</span>
+                </div>
                 <hr>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="ค้นหารายชื่อ" aria-label="ชื่อทัวร์"
@@ -89,7 +94,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr  th:if="${user == null}" class="text-center">
+                    <tr  th:if="${count == 0}" class="text-center">
                         <td colspan="4"> No User Booking</td>
                     </tr>
                     <tr th:each="user: ${user}">
