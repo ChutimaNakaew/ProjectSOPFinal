@@ -9,13 +9,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "MyUser")
+@Document(collection = "myUser")
 public class User {
     @Id
     private String id;
@@ -31,8 +33,9 @@ public class User {
     private String province;
     private String status;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+    @NotNull
     private Binary slip;
     private String bank;
 }
