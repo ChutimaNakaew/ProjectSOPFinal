@@ -22,6 +22,11 @@
             height: 70px;
             width: 70px;
         }
+
+        .imgSlip{
+            height:400px;
+            width:350px;
+        }
     </style>
 </head>
 
@@ -106,7 +111,7 @@
                             </table>
                         </div>
                         <div class="col-5">
-                            <img alt="sample" th:src="*{'data:image/png;base64,'+ image}"/>
+                            <img class="imgSlip" alt="sample" th:src="*{'data:image/png;base64,'+ image}"/>
 <!--                            <img src="payment.jpg" alt="">-->
                         </div>
                     </div>
