@@ -1,6 +1,7 @@
 package com.example.projectsopfinal.repository;
 
 import ch.qos.logback.core.pattern.Converter;
+import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import org.bson.BsonBinarySubType;
 import org.bson.BsonUndefined;
@@ -64,4 +65,5 @@ public class UserService {
         }
         return user;
     }
+
 }

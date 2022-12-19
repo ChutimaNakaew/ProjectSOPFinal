@@ -37,4 +37,5 @@ public class User {
     private Binary slip;
     private String bank;
 
+
 }

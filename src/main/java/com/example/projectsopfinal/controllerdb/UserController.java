@@ -1,5 +1,6 @@
 package com.example.projectsopfinal.controllerdb;
 
+import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.PaymentService;
 import com.example.projectsopfinal.repository.UserService;
@@ -80,6 +81,8 @@ public class UserController {
         model.addAttribute("user", user);
         return "admin/user_detail";
     }
+
+
 
 //    @GetMapping("/photos/{id}")
 //    public String getPhoto(Model model, @PathVariable String id) {
