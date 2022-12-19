@@ -58,19 +58,21 @@ public class AdminController {
 //        return "user/test";
 //    }
 
-    @PostMapping("/UpdateState")
-    public String UpdateState(@RequestParam("id") String id,
-                              @RequestParam("state") Boolean state,
-                              @RequestParam("province") String province,
-                              @RequestParam("price") Double price,
-                              @RequestParam("schedule") String schedule,
-                              @RequestParam("img") String img,
-                              @RequestParam("detail_img") String detail_img,
-                              @RequestParam("detail") String detail,
-                              @RequestParam("date") Date date) {
-        tourService.updateState(state, id);
-        return "redirect:/adminPayment";
-    }
+//    @PostMapping("/UpdateState")
+//    public String UpdateState(@RequestParam("id") String id,
+//                              @RequestParam("state") Boolean state,
+//                              @RequestParam("province") String province,
+//                              @RequestParam("price") Double price,
+//                              @RequestParam("schedule") String schedule,
+//                              @RequestParam("img") String img,
+//                              @RequestParam("detail_img") String detail_img,
+//                              @RequestParam("detail") String detail,
+//                              @RequestParam("date") Date date) {
+//        tourService.updateState(state, id);
+//        return "redirect:/adminPayment";
+//    }
+
+
 
 //        @GetMapping("/form/{name}")
 //        public String formtour(@PathVariable("name") String name, Model model) {
