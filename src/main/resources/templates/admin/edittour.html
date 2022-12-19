@@ -36,10 +36,10 @@
                 <label>วันที่เดินทาง:</label>
                 <br>
                 <label class="my-2">ครั้งที่ 1:</label>
-                <input th:value="*{tour.date_first}" type="text" class="form-control my-2" >
+                <input th:value="*{tour.date_first}" name="date_first" type="date" class="form-control my-2" id="date_first" >
                 <br>
                 <label class="my-2">ครั้งที่ 2:</label>
-                <input th:value="*{tour.date_second}" type="text" class="form-control my-2" >
+                <input th:value="*{tour.date_second}" name="date_second" type="date" class="form-control my-2" id="date_second" >
                 <br>
                 <label>ภาพปก:</label>
                 <input type="text" name="img" class="form-control" th:value="*{tour.img}">

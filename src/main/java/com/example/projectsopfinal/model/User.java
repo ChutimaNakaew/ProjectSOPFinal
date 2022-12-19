@@ -9,6 +9,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -30,11 +32,14 @@ public class User {
     private Double tour_price;
     private String province;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
-    private Boolean status;
+    private String status;
+
+    @NotNull
     private Binary slip;
+
     private String bank;
 
 }
