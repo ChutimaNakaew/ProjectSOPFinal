@@ -33,7 +33,7 @@ public class TourThymeleafController {
 //        model.addAttribute("tours", tourService.getAllTours());
 //        System.out.println(provinces);
 //        return "user/main";
-        if (provinces == null || provinces == "") {
+        if (provinces == null || provinces.equals("")) {
             model.addAttribute("tours", tourService.getAllTours(filters));
         } else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces, filters)); //, filters
@@ -62,7 +62,7 @@ public class TourThymeleafController {
     @GetMapping("/maintour")
     public String maintours(@RequestParam(value = "provinces", required=false) String provinces, @RequestParam(value = "filters", required=false) String filters, Model model){
 //        model.addAttribute("tours", tourService.getAllTours());
-        if (provinces == null || provinces == ""){
+        if (provinces == null || provinces.equals("")){
             model.addAttribute("tours", tourService.getAllTours());
         }
         else {
