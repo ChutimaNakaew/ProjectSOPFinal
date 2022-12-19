@@ -66,8 +66,28 @@ public class TourService {
         return tourRepository.findById(id);
     }
 
-    public List<Tour> getToursByProvince(String province, String filters){ //เกบค่าแลล้ว sort ได้เยย
-        return tourRepository.findByProvince(province);
+    public List<Tour> getToursByProvince(String province, String filters){
+        List<Tour> tourList = new ArrayList<Tour>();
+        Iterable<Tour> tours = tourRepository.findByProvince(province);
+        tours.forEach(tourList::add);
+        if (filters != null && filters.equals("ราคาถูกที่สุด")) {
+            Collections.sort(tourList, new Comparator<Tour>() {
+                @Override
+                public int compare(Tour a1, Tour a2) {
+                    return (int) (a1.getPrice() - a2.getPrice());
+                }
+            });
+        }
+        else if (filters != null && filters.equals("ราคาแพงที่สุด")){
+            Collections.sort(tourList, new Comparator<Tour>() {
+                @Override
+                public int compare(Tour a1, Tour a2) {
+                    return (int)(a2.getPrice() - a1.getPrice());
+                }
+            });
+        }
+        return tourList;
+//        return tourRepository.findByProvince(province);
     }
 
 
