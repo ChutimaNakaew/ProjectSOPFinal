@@ -91,7 +91,6 @@
                 <table class="table fs-6 table-hover text-center">
                     <thead>
                     <tr>
-                        <th scope="col" style="width: 80px">ไอดี</th>
                         <th scope="col" style="width: 90px">ชื่อผู้จอง</th>
                         <th scope="col" style="width: 90px">สถานะ</th>
                         <th scope="col" style="width: 200px">ชื่อทัวร์</th>
@@ -101,7 +100,6 @@
                     </thead>
                     <tbody>
                     <tr th:each="user: ${user}">
-                        <th scope="row" th:text="${user.id}"></th>
                         <td th:text="${user.firstname}"></td>
 <!--                        <td><div class="text-white bg-success rounded" th:text="${user.status}">อนุมัติ</div></td>-->
                         <td th:switch="${user.status}">
