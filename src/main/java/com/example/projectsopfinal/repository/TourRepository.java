@@ -1,6 +1,7 @@
 package com.example.projectsopfinal.repository;
 
 import com.example.projectsopfinal.model.Tour;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -14,4 +15,6 @@ public interface TourRepository extends CrudRepository<Tour, String> {
 
     @Query(value = "{province: '?0'}")
     public List<Tour> findByProvince (String province);
+
+//    Iterable<Tour> findAll(Sort price);
 }

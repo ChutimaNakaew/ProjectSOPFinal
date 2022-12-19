@@ -1,7 +1,6 @@
 package com.example.projectsopfinal.controllerdb;
 
 //import com.example.projectsopfinal.repository.ProvinceService;
-
 import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Null;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Optional;
 
 
@@ -31,19 +29,19 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/main")
-    public String tours(@RequestParam(value = "provinces", required = false) String provinces, Model model) {
+    public String tours(@RequestParam(value = "provinces", required=false) String provinces, Model model) {
 //        model.addAttribute("tours", tourService.getAllTours());
 //        System.out.println(provinces);
 //        return "user/main";
-        if (provinces == null || provinces == "") {
+        if (provinces == null || provinces == ""){
             model.addAttribute("tours", tourService.getAllTours());
-        } else {
+        }
+        else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces));
         }
         return "user/main";
     }
-
-    //    @GetMapping("/main")
+//    @GetMapping("/main")
 //    public String provinces(Model model){
 //        model.addAttribute("provinces", provinceService.getAllProvinces());
 //        return "user/main";
@@ -63,30 +61,24 @@ public class TourThymeleafController {
     }
 
     @GetMapping("/maintour")
-    public String maintours(@RequestParam(value = "provinces", required = false) String provinces, Model model) {
+    public String maintours(@RequestParam(value = "provinces", required=false) String provinces, Model model){
 //        model.addAttribute("tours", tourService.getAllTours());
-        if (provinces == null || provinces == "") {
+        if (provinces == null || provinces == ""){
             model.addAttribute("tours", tourService.getAllTours());
-        } else {
+        }
+        else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces));
         }
         return "admin/maintour";
     }
 
-    //    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
-//    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
-//        Tour tour = id.isPresent() ?
-//                tourService.findTourById(id.get()).get() : new Tour();
-//        model.addAttribute("tour", tour);
-//        return "admin/add-edit";
-//    }
-    @GetMapping("/edit-add")
-    public String addTour(Model model) {
-        Tour tour = new Tour();
+    @GetMapping(value = {"/edit-add/{id}", "/edit-add"})
+    public String editTour(@PathVariable("id") Optional<String> id, Model model) {
+        Tour tour = id.isPresent() ?
+                tourService.findTourById(id.get()).get() : new Tour();
         model.addAttribute("tour", tour);
         return "admin/add-edit";
     }
-
 
     @PostMapping("/save-reservation")
     public String editTour(@ModelAttribute("tour") @Valid Tour tour,
