@@ -106,7 +106,7 @@
 <!--                        <td><div class="text-white bg-success rounded" th:text="${user.status}">อนุมัติ</div></td>-->
                         <td th:switch="${user.status}">
                             <p th:case="'true'" class="text-white bg-success rounded">อนุมัติ</p>
-                            <p th:case="'False'" class="text-white bg-danger rounded">ไม่อนุมัติ</p>
+                            <p th:case="'false'" class="text-white bg-danger rounded">ไม่อนุมัติ</p>
                             <p th:case="''" class="text-white bg-warning rounded">รออนุมัติ</p>
                         </td>
                         <td th:text="${user.tour_name}">
