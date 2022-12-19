@@ -62,6 +62,11 @@
                 <label th:style="'color:red'" th:if="${#fields.hasErrors('detail_img')}"
                        th:errors="*{detail_img}"></label>
             </div>
+            <div class="form-group">
+                <label for="img">จำนวนผู้เดินทาง:</label>
+                <input th:field="*{max_tourist}" type="text" class="form-control" id="max_tourist">
+                <label th:style="'color:red'" th:if="${#fields.hasErrors('max_tourist')}" th:errors="*{max_tourist}"></label>
+            </div>
             <div class="text-center">
                 <a th:href="@{/maintour}">
                     <button type="button" class="btn btn-secondary">Cancel</button>

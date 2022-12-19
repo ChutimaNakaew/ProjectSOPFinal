@@ -46,6 +46,8 @@
                 <br>
                 <label>ภาพรายละเอียด:</label>
                 <input type="text" name="detail_img" class="form-control" th:value="*{tour.detail_img}">
+                <label>จำนวนผู้เดินทาง:</label>
+                <input type="text" name="max_tourist" class="form-control" th:value="*{tour.max_tourist}">
                 <br>
                 <div class="text-center">
                     <a th:href="@{/maintour}">

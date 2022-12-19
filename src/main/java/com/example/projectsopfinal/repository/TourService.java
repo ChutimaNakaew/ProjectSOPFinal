@@ -56,7 +56,7 @@ public class TourService {
         }
         return tour;
     }
-    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, LocalDate date_first, LocalDate date_second)
+    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, LocalDate date_first, LocalDate date_second, Integer max_tourist)
     {
         Tour t = new Tour();
         t = tourRepository.findById(id).get();
@@ -69,6 +69,7 @@ public class TourService {
         t.setDetail(detail);
         t.setDate_first(date_first);
         t.setDate_second(date_second);
+        t.setMax_tourist(max_tourist);
         tourRepository.save(t);
     }
 
