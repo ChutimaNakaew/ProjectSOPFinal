@@ -107,7 +107,7 @@
                         <td th:text="${user.tour_name}">
 
                         </td>
-                        <td th:text="${#dates.format(user.date, 'dd-MM-yyyy')}"></td>
+                        <td th:text="${user.date}"></td>
                         <td><a th:href="@{/userdetail/{id}(id=${user.id})}"  class="btn btn-info" role="button">ดูรายละเอียด</a></td>
                     </tr>
                     <!--                            <tr>-->

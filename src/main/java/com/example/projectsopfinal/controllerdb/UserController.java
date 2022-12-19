@@ -81,9 +81,6 @@ public class UserController {
         model.addAttribute("user", user);
         return "admin/user_detail";
     }
-
-
-
 //    @GetMapping("/photos/{id}")
 //    public String getPhoto(Model model, @PathVariable String id) {
 //        User slip = userService.getId(id);
