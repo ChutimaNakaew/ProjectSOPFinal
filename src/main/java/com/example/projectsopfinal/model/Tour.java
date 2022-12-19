@@ -29,7 +29,6 @@ public class Tour {
     private Object detail;
     private Integer people;
     private String schedule;
-    private Boolean state;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date_first;

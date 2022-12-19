@@ -66,4 +66,12 @@ public class UserService {
         return user;
     }
 
+    public void updateStateTrue(String id)
+    {
+        User t = new User();
+        t = userRepository.findById(id).get();
+        String state = "true";
+        t.setStatus(state);
+        userRepository.save(t);
+    }
 }

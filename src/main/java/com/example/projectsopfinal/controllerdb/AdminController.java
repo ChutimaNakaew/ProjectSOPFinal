@@ -50,29 +50,12 @@ public class AdminController {
         return "admin/admincheckpayment";
     }
 
-    //    @GetMapping("/photos/{id}")
-//    public String getPhoto(Model model, @PathVariable String id) {
-//        User slip = userService.getId(id);
-//        model.addAttribute("image",
-//                Base64.getEncoder().encodeToString(slip.getSlip().getData()));
-//        return "user/test";
-//    }
-
-//    @PostMapping("/UpdateState")
-//    public String UpdateState(@RequestParam("id") String id,
-//                              @RequestParam("state") Boolean state,
-//                              @RequestParam("province") String province,
-//                              @RequestParam("price") Double price,
-//                              @RequestParam("schedule") String schedule,
-//                              @RequestParam("img") String img,
-//                              @RequestParam("detail_img") String detail_img,
-//                              @RequestParam("detail") String detail,
-//                              @RequestParam("date") Date date) {
-//        tourService.updateState(state, id);
-//        return "redirect:/adminPayment";
-//    }
-
-
+    @PostMapping("/updateStateTrue/{id}")
+    public String UpdateState(@PathVariable("id") String id)
+    {
+        userService.updateStateTrue(id);
+        return "redirect:/adminPayment";
+    }
 
 //        @GetMapping("/form/{name}")
 //        public String formtour(@PathVariable("name") String name, Model model) {
