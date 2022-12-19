@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -68,6 +69,7 @@ public class UserController {
     @GetMapping("/adminViewlist/{nameTour}")
     public String ShowUser(@PathVariable("nameTour") String nameTour, Model model) {
         model.addAttribute("user", userService.findByNameTour(nameTour));
+        model.addAttribute("count", userService.getCount(nameTour));
         return "admin/AdminViewListName";
     }
 
