@@ -6,8 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class TourService {
@@ -21,8 +20,34 @@ public class TourService {
         return tourRepository.save(tour);
     }
 
-    public Iterable<Tour> getAllTours(){
-        return tourRepository.findAll();
+    public List<Tour> getAllTours(String filters){
+        List<Tour> tourList = new ArrayList<Tour>();
+        Iterable<Tour> tours = tourRepository.findAll();
+        tours.forEach(tourList::add);
+        if (filters != null && filters.equals("ราคาถูกที่สุด")) {
+            Collections.sort(tourList, new Comparator<Tour>() {
+                @Override
+                public int compare(Tour a1, Tour a2) {
+                    return (int) (a1.getPrice() - a2.getPrice());
+                }
+            });
+        }
+        else if (filters != null && filters.equals("ราคาแพงที่สุด")){
+            Collections.sort(tourList, new Comparator<Tour>() {
+                @Override
+                public int compare(Tour a1, Tour a2) {
+                    return (int)(a2.getPrice() - a1.getPrice());
+                }
+            });
+        }
+        return tourList;
+    }
+
+    public List<Tour> getAllTours(){
+        List<Tour> tourList = new ArrayList<Tour>();
+        Iterable<Tour> tours = tourRepository.findAll();
+        tours.forEach(tourList::add);
+        return tourList;
     }
 
     public void deleteAllTours(){
@@ -41,7 +66,7 @@ public class TourService {
         return tourRepository.findById(id);
     }
 
-    public Iterable<Tour> getToursByProvince(String province){
+    public List<Tour> getToursByProvince(String province, String filters){ //เกบค่าแลล้ว sort ได้เยย
         return tourRepository.findByProvince(province);
     }
 
@@ -72,10 +97,5 @@ public class TourService {
         t.setMax_tourist(max_tourist);
         tourRepository.save(t);
     }
-
-//    public Iterable<Tour> getSortMinTours(){
-//        return tourRepository.findAll(Sort.by(Sort.Direction.DESC, "price"));
-//    }
-
 
 }

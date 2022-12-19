@@ -16,5 +16,4 @@ public interface TourRepository extends CrudRepository<Tour, String> {
     @Query(value = "{province: '?0'}")
     public List<Tour> findByProvince (String province);
 
-//    Iterable<Tour> findAll(Sort price);
 }
