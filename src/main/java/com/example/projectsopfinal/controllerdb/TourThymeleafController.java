@@ -33,10 +33,9 @@ public class TourThymeleafController {
 //        model.addAttribute("tours", tourService.getAllTours());
 //        System.out.println(provinces);
 //        return "user/main";
-        if (provinces == null || provinces == ""){
+        if (provinces == null || provinces == "") {
             model.addAttribute("tours", tourService.getAllTours(filters));
-        }
-        else {
+        } else {
             model.addAttribute("tours", tourService.getToursByProvince(provinces, filters)); //, filters
         }
         return "user/main";
