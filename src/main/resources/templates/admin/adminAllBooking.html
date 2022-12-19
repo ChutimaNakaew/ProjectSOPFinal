@@ -58,8 +58,8 @@
                     <div>
                         <hr>
                         <p class="fw-bold text-primary text-start">ทัวร์</p>
-                        <a href="/maintour" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
-                        <a th:href="@{/edit-add}" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
+                        <a href="/adminHome" class="text-decoration-none text-dark"><p class=" text-start ms-2"> <i class="bi bi-geo-alt-fill"></i> ทัวร์ทั้งหมด</p></a>
+                        <a href="/maintour" class="text-decoration-none text-dark"><p class=" text-start ms-2"><p class=" text-start ms-2"> <i class="bi bi-pen-fill"></i> จัดการทัวร์</p></a>
 
                         <hr>
                         <p class="fw-bold text-primary text-start">รายการชำระเงิน</p>
@@ -103,33 +103,17 @@
                     <tr th:each="user: ${user}">
                         <th scope="row" th:text="${user.id}"></th>
                         <td th:text="${user.firstname}"></td>
-                        <td><div class="text-white bg-success rounded">อนุมัติ</div></td>
+<!--                        <td><div class="text-white bg-success rounded" th:text="${user.status}">อนุมัติ</div></td>-->
+                        <td th:switch="${user.status}">
+                            <p th:case="'true'" class="text-white bg-success rounded">อนุมัติ</p>
+                            <p th:case="'False'" class="text-white bg-danger rounded">ไม่อนุมัติ</p>
+                        </td>
                         <td th:text="${user.tour_name}">
 
                         </td>
                         <td th:text="${user.date}"></td>
                         <td><a th:href="@{/userdetail/{id}(id=${user.id})}"  class="btn btn-info" role="button">ดูรายละเอียด</a></td>
                     </tr>
-                    <!--                            <tr>-->
-                    <!--                                <th scope="row">2</th>-->
-                    <!--                                <td>IZAAC2</td>-->
-                    <!--                                <td><div class="text-white bg-danger rounded">ไม่อนุมัติ</div></td>-->
-                    <!--                                <td>-->
-                    <!--                                    <div>ทัวร์ภูเก็ต</div>-->
-                    <!--                                </td>-->
-                    <!--                                <td>จ. 24 ธ.ค. 2565</td>-->
-                    <!--                                <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>-->
-                    <!--                            </tr>-->
-                    <!--                            <tr>-->
-                    <!--                                <th scope="row">3</th>-->
-                    <!--                                <td>IZAAC3</td>-->
-                    <!--                                <td>-</td>-->
-                    <!--                                <td>-->
-                    <!--                                    <div>ทัวร์ภูเก็ต</div>-->
-                    <!--                                </td>-->
-                    <!--                                <td>จ. 24 ธ.ค. 2565</td>-->
-                    <!--                                <td><a href="/userdetail" class="btn btn-info" role="button">ดูรายละเอียด</a></td>-->
-                    <!--                            </tr>-->
                     </tbody>
                 </table>
             </div>
