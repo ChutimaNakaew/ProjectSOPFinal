@@ -140,12 +140,12 @@
                                                 <select class="form-select" th:field="*{date}" th:each="tour : ${tours}" id="date">
                                                     <option value="">เลือกวันเดินทาง</option>
                                                     <option
-                                                            th:value="${#dates.format(tour.date_first, 'yyyy-MM-dd')}"
-                                                            th:text="${#dates.format(tour.date_first, 'yyyy-MM-dd')}">
+                                                            th:value="${tour.date_first}"
+                                                            th:text="${tour.date_first}">
                                                     </option>
                                                     <option
-                                                            th:value="${#dates.format(tour.date_second, 'yyyy-MM-dd')}"
-                                                            th:text="${#dates.format(tour.date_second, 'yyyy-MM-dd')}">
+                                                            th:value="${tour.date_second}"
+                                                            th:text="${tour.date_second}">
                                                     </option>
                                                 </select>
                                             </div>

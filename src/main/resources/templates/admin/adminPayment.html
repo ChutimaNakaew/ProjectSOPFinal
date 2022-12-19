@@ -104,7 +104,7 @@
                         <td>
                             <p th:text="${tour.tour_name}"></p>
                         </td>
-                        <td><p th:text="${#dates.format(tour.date, 'dd-MM-yyyy')}" ></p></td>
+                        <td><p th:text="${tour.date}" ></p></td>
                         <td><span th:text="${tour.firstname}"></span> <span th:text="${tour.lastname}"></span></td>
                         <td><a href="/adminCheckPayment" th:href="@{/adminCheckPayment/{id}(id=${tour.id})}" class="btn btn-warning" role="button">ดูหลักฐาน</a></td>
                         <td>
