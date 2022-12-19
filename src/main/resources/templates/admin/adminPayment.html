@@ -105,17 +105,16 @@
                     <table class="table fs-6 table-hover text-center">
                         <thead>
                             <tr>
-                                <th scope="col" style="width: 80px">ไอดี</th>
-                                <th scope="col" style="width: 200px">ชื่อทัวร์</th>
+                                <th scope="col" style="width: 240px">ชื่อทัวร์</th>
                                 <th scope="col" style="width: 120px">วันเดินทาง</th>
                                 <th scope="col" style="width: 120px">ชื่อผู้จอง</th>
                                 <th scope="col" style="width: 120px">หลักฐาน</th>
-                                <th scope="col" style="width: 140px">การอนุมัติ</th>
+                                <th scope="col" style="width: 130px">การอนุมัติ</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="tour : ${tours}">
-                                <th scope="row">1</th>
+                        <span th:each="tour : ${tours}">
+                            <tr th:if="${tour.status == ''}">
                                 <td>
                                     <p th:text="${tour.tour_name}"></p>
                                 </td>
@@ -131,24 +130,29 @@
                                 <td>
 
                                     <div class="row text-center">
-                                            <div class="col-lg-12 col-xl-4">
+                                            <div class="col-md-12 col-lg-6">
                                                 <form th:action="@{/updateStateTrue/{id}(id=${tour.id})}" method="post" class="form-inline">
 <!--                                                    <a onclick="document.getElementById('form1').submit();"><span><i-->
 <!--                                                            class="bi bi-check-square-fill text-success fs-3"></i></span></a>-->
-                                                    <button type="submit" class="btn btn-success">ผ่าน</button>
+                                                    <button type="submit" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+</svg></button>
                                                 </form>
                                             </div>
-                                            <div class="col-lg-12 col-xl-8 mx-auto my-auto">
+                                            <div class="col-md-12 col-lg-6 mx-auto my-auto">
                                                 <form th:action="@{/updateStateFalse/{id}(id=${tour.id})}" method="post" class="form-inline">
 <!--                                                    <a onclick="document.getElementById('form2').submit();"><span><i-->
 <!--                                                            class="bi bi-x-square-fill text-danger fs-3"></i></span></a>-->
-                                                    <button type="submit" class="btn btn-danger">ไม่ผ่าน</button>
+                                                    <button type="submit" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+</svg></button>
                                                 </form>
                                             </div>
                                     </div>
 
                                 </td>
                             </tr>
+                            </span>
                         </tbody>
                     </table>
                 </div>
