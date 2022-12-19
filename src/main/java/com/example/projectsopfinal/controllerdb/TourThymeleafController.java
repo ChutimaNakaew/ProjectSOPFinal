@@ -4,7 +4,6 @@ package com.example.projectsopfinal.controllerdb;
 import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
-import com.mongodb.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Null;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -117,7 +115,7 @@ public class TourThymeleafController {
                              @RequestParam("max_tourist") Integer max_tourist
     )
     {
-        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
+        tourService.changeName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
         return "redirect:/maintour";
     }
 }

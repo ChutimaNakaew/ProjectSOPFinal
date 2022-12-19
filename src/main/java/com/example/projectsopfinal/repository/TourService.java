@@ -101,7 +101,7 @@ public class TourService {
         }
         return tour;
     }
-    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, LocalDate date_first, LocalDate date_second, Integer max_tourist)
+    public void changeName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, LocalDate date_first, LocalDate date_second, Integer max_tourist)
     {
         Tour t = new Tour();
         t = tourRepository.findById(id).get();
