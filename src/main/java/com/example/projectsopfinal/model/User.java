@@ -40,9 +40,6 @@ public class User {
     @NotNull
     private Binary slip;
 
-    private String status;
-    private String slip;
     private String bank;
-
 
 }
