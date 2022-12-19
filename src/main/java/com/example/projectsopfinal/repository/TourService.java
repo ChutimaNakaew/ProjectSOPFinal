@@ -2,6 +2,7 @@ package com.example.projectsopfinal.repository;
 
 import com.example.projectsopfinal.model.Tour;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -44,6 +45,7 @@ public class TourService {
         return tourRepository.findByProvince(province);
     }
 
+
     public Tour getTourById(String id){
         Optional<Tour> optional = tourRepository.findById(id);
         Tour tour = null;
@@ -69,6 +71,10 @@ public class TourService {
         t.setDate_second(date_second);
         tourRepository.save(t);
     }
+
+//    public Iterable<Tour> getSortMinTours(){
+//        return tourRepository.findAll(Sort.by(Sort.Direction.DESC, "price"));
+//    }
 
 
 }
