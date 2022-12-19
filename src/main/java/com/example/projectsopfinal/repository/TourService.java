@@ -24,11 +24,11 @@ public class TourService {
         List<Tour> tourList = new ArrayList<Tour>();
         Iterable<Tour> tours = tourRepository.findAll();
         tours.forEach(tourList::add);
-        if (filters != null && filters.equals("ราคาถูกที่สุด")){
+        if (filters != null && filters.equals("ราคาถูกที่สุด")) {
             Collections.sort(tourList, new Comparator<Tour>() {
                 @Override
                 public int compare(Tour a1, Tour a2) {
-                    return (int)(a1.getPrice() - a2.getPrice());
+                    return (int) (a1.getPrice() - a2.getPrice());
                 }
             });
         }
