@@ -54,7 +54,7 @@ public class TourService {
         }
         return tour;
     }
-    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, Date date_first, Date date_second)
+    public void chageName(String id , String name, String province, Double price, String schedule, String img, String detail_img, String detail, LocalDate date_first, LocalDate date_second)
     {
         Tour t = new Tour();
         t = tourRepository.findById(id).get();

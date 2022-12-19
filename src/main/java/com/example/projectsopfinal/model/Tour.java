@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -30,9 +31,9 @@ public class Tour {
     private String schedule;
     private Boolean state;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date date_first;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date_first;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private Date date_second;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date_second;
 }

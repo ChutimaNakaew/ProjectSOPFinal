@@ -5,6 +5,7 @@ package com.example.projectsopfinal.controllerdb;
 import com.example.projectsopfinal.model.Tour;
 import com.example.projectsopfinal.model.User;
 import com.example.projectsopfinal.repository.TourService;
+import com.mongodb.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -121,9 +122,8 @@ public class TourThymeleafController {
                              @RequestParam("img") String img,
                              @RequestParam("detail_img") String detail_img,
                              @RequestParam("detail") String detail,
-                             @RequestParam("date_first") @DateTimeFormat(pattern = "dd-MM-yyyy") Date date_first,
-                             @RequestParam("date_second") @DateTimeFormat(pattern = "dd-MM-yyyy") Date date_second)
-
+                             @RequestParam("date_first") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date_first,
+                             @RequestParam("date_second") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date_second)
     {
         tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second);
         return "redirect:/maintour";
