@@ -32,13 +32,13 @@
         <div class="col-3">
             <div class="p-3 border bg-white h-100 rounded-2 shadow p-3 mb-5 bg-body rounded">
                 <div class="text-center">
-                    <a href="/adminHome"><img src="PaaPai.png" class="rounded logo" alt="LOGO_PaaPai"></a>
+                    <a href="/adminHome"><img src="https://cdn.discordapp.com/attachments/876025140490698753/1054368171223683172/PaaPai.png" class="rounded logo" alt="LOGO_PaaPai"></a>
                     <hr>
                     <p class="fw-bold text-primary text-start">ผู้ดูแลระบบ</p>
 
                     <div class="row gx-3 d-flex align-items-center justify-content-center">
                         <div class="col-4">
-                            <img src="admin.jpg"
+                            <img src="https://cdn.discordapp.com/attachments/876025140490698753/1054368147555233953/admin.jpg"
                                  class="rounded-circle imgAdmin" alt="img_admin">
                         </div>
                         <div class="col-8 text-center">
@@ -98,18 +98,12 @@
                         <td colspan="4"> No User Booking</td>
                     </tr>
                     <tr th:each="user: ${user}">
-                        <!--                        <th scope="row">1</th>-->
                         <td th:text="${user.id}"></td>
-                        <td th:text="${user.firstname}"></td>
+                        <td th:text="${user.firstname + '&emsp;' + user.lastname}">
+                        </td>
                         <td th:text="${user.phone}"></td>
                         <td th:text="${user.email}"></td>
                     </tr>
-                    <!--                    <tr>-->
-                    <!--                        <th scope="row">2</th>-->
-                    <!--                        <td>สมชาย &nbsp; มีตังค์</td>-->
-                    <!--                        <td>0987654321</td>-->
-                    <!--                        <td>somchai@gmail.com</td>-->
-                    <!--                    </tr>-->
                     </tbody>
                 </table>
             </div>

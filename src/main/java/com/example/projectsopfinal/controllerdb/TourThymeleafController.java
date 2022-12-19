@@ -115,9 +115,11 @@ public class TourThymeleafController {
                              @RequestParam("detail_img") String detail_img,
                              @RequestParam("detail") String detail,
                              @RequestParam("date_first") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date_first,
-                             @RequestParam("date_second") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date_second)
+                             @RequestParam("date_second") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date_second,
+                             @RequestParam("max_tourist") Integer max_tourist
+    )
     {
-        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second);
+        tourService.chageName(id, name, province, price, schedule, img, detail_img, detail, date_first, date_second, max_tourist);
         return "redirect:/maintour";
     }
 }
