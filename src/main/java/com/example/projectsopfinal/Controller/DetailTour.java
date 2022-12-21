@@ -17,10 +17,10 @@ public class DetailTour {
         return "user/ConfirmTour";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        return "admin/AdminLogin";
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    public String login() {
+//        return "admin/AdminLogin";
+//    }
 
     @RequestMapping(value = "/listname", method = RequestMethod.GET)
     public String listName() {

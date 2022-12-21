@@ -1,5 +1,6 @@
 package com.example.projectsopfinal.controllerdb;
 
+import com.example.projectsopfinal.repository.AdminService;
 import org.springframework.web.bind.annotation.GetMapping;
 //import com.example.projectsopfinal.repository.ProvinceService;
 import com.example.projectsopfinal.model.Tour;
@@ -23,10 +24,13 @@ public class AdminController {
     private TourService tourService;
     private UserService userService;
 
+    private AdminService adminService;
+
     @Autowired
-    public AdminController(TourService tourService, UserService userService) {
+    public AdminController(TourService tourService, UserService userService, AdminService adminService) {
         this.tourService = tourService;
         this.userService = userService;
+        this.adminService = adminService;
     }
 
     @GetMapping("/adminHome")
@@ -91,6 +95,25 @@ public class AdminController {
     public String notPass(Model model) {
         model.addAttribute("tours", userService.getAllUsers());
         return "admin/notPass";
+    }
+
+    @PostMapping("/adminLogin")
+    public String findByUsername(@RequestParam("username") String username, @RequestParam("password") String password)
+    {
+        String ans = adminService.findByUsername(username, password);
+//        return "admin/adminLogin";
+        System.out.println(ans);
+        return "redirect:/"+ans;
+//        if(ans == "pass"){
+//            return "admin/adminHome";
+//        }else {
+//            return "admin/AdminLogin";
+//        }
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "admin/adminLogin";
     }
 
 //        @GetMapping("/form/{name}")
