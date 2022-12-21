@@ -1,5 +1,6 @@
 package com.example.projectsopfinal.controllerdb;
 
+import com.example.projectsopfinal.model.admin;
 import com.example.projectsopfinal.repository.AdminService;
 import org.springframework.web.bind.annotation.GetMapping;
 //import com.example.projectsopfinal.repository.ProvinceService;
@@ -98,17 +99,12 @@ public class AdminController {
     }
 
     @PostMapping("/adminLogin")
-    public String findByUsername(@RequestParam("username") String username, @RequestParam("password") String password)
+    public String findByUsername(@RequestParam("username") String username, @RequestParam("password") String password, Model model)
     {
         String ans = adminService.findByUsername(username, password);
-//        return "admin/adminLogin";
-        System.out.println(ans);
-        return "redirect:/"+ans;
-//        if(ans == "pass"){
-//            return "admin/adminHome";
-//        }else {
-//            return "admin/AdminLogin";
-//        }
+        model.addAttribute("name", username);
+        return "redirect:/"+ans+"/"+username;
+
     }
 
     @GetMapping("/login")
@@ -116,11 +112,10 @@ public class AdminController {
         return "admin/adminLogin";
     }
 
-//        @GetMapping("/form/{name}")
-//        public String formtour(@PathVariable("name") String name, Model model) {
-//            User user = new User();
-//            model.addAttribute("user", user);
-//            model.addAttribute("tours", tourService.detailTourByName(name));
-//            return "user/Form";
-//        }
+    @GetMapping("/adminMenu/{username}")
+    public String adminMenu(Model model, @PathVariable("username") String username ) {
+        model.addAttribute("name", username);
+        return "admin/adminMenu";
+    }
+
 }
